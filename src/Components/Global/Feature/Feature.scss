@@ -1,0 +1,45 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling Feature
+.feature {
+	margin-bottom: 50px;
+	width: max-content;
+	//Icon
+	.icon {
+		height: 65px;
+		margin-left: 38px;
+		img {
+			height: 100%;
+		}
+	}
+	//Info
+	.info {
+		.headline {
+			font-size: 22pt;
+			font-weight: 600;
+			color: $title-text;
+		}
+	}
+}
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling Feature
+	.feature {
+		//Icon
+		.icon {
+			height: 50px;
+		}
+		//Info
+		.info {
+			.headline {
+				font-size: 18pt;
+			}
+		}
+	}
+}

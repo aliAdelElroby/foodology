@@ -1,0 +1,90 @@
+// Import Variables File
+@import "@SassVars";
+
+// Styling Login Page
+.login-page {
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+	will-change: margin-left;
+	// Photo
+	.photo {
+		width: 100%;
+		min-height: 100vh;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	// Content
+	.content {
+		width: max-content;
+		padding: 150px 0 120px 0;
+		// Or
+		.or {
+			width: 100%;
+			&::before,
+			&::after {
+				content: "";
+				height: 2px;
+				width: 10%;
+				background-color: $outline;
+				display: block;
+				margin-right: 20px;
+			}
+			&::after {
+				margin-right: 0px;
+				margin-left: 20px;
+			}
+		}
+		// Form
+		.form {
+			form {
+				// Forget
+				.forget {
+					text-align: right;
+					a {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+	// Login Page
+	.login-page {
+		min-height: calc(100vh - #{$navbar-height});
+		// Content
+		.content {
+			width: 95%;
+			padding: 20vh 0 120px 0;
+			// Form
+			.form {
+				padding: 0 5%;
+			}
+		}
+	}
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Login Page
+	.login-page {
+		// Photo
+		.photo {
+			display: none;
+		}
+		// Content
+		.content {
+			padding: 100px 0 120px 0;
+			// Form
+			.form {
+				padding: 0 5%;
+			}
+		}
+	}
+}

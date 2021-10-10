@@ -1,0 +1,23 @@
+// Styling FoodImages
+.food-images {
+	//Main
+	.main {
+		max-width: 300px;
+		height: 300px;
+		border-radius: 30px;
+	}
+	// Sub
+	.sub {
+		// One
+		.one,
+		.two {
+			height: 70px;
+			width: 70px;
+			border-radius: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+	}
+}

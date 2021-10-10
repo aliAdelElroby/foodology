@@ -1,0 +1,144 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling Footer
+.main-footer {
+	padding: 150px 0 70px 0;
+	overflow: hidden;
+	// Subscribe
+	.subscribe {
+		width: 100%;
+		min-height: 519px;
+		padding: 70px;
+		margin-bottom: 150px;
+		border-radius: 50px;
+		overflow: hidden;
+		position: relative;
+		.bg {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+		// Content
+		.content {
+			p {
+				line-height: 25pt;
+				margin: 20px 0 40px 0;
+			}
+		}
+	}
+
+	// Footer Content
+	.footer-content {
+		margin-top: 0px;
+		// Social Media
+		.social-media {
+			ul {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				li {
+					display: inline-block;
+					margin-right: 25px;
+					a {
+						$list: (twitter, #1da1f2) (facebook, #4267b2)
+							(google, #db4437) (instagram, #f56040);
+						@each $social, $color in $list {
+							&.#{$social} {
+								ion-icon {
+									color: $color;
+								}
+							}
+						}
+						ion-icon {
+							font-size: 20px;
+						}
+					}
+				}
+			}
+		}
+		// Copyright
+		.copyright {
+			margin-top: 50px;
+			color: $title-text;
+			a {
+				color: $primary;
+				font-size: 14pt;
+				font-weight: 600;
+				text-decoration: none;
+			}
+		}
+
+		// Links
+		.links {
+			width: 100%;
+			.foods {
+				margin-right: 100px;
+			}
+			.headline {
+				font-size: 15pt;
+				font-weight: 600;
+			}
+			ul {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				li {
+					margin-top: 20px;
+					a {
+						color: $main-text;
+						text-decoration: none;
+						font-weight: 500;
+						transition: color 300ms;
+						&:hover {
+							color: $outline;
+						}
+					}
+				}
+			}
+			// Important Links
+			.important-links {
+				li {
+					display: inline-block;
+					margin-right: 30px;
+				}
+			}
+		}
+	}
+}
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+	// Styling Footer
+	.main-footer {
+		.container {
+			padding: 0;
+			margin: auto;
+		}
+		// Subscribe
+		.subscribe {
+			border-radius: 0;
+			padding: 70px 0 140px 20px;
+			.bg {
+				background-image: none !important;
+			}
+		}
+		// Footer Content
+		.footer-content {
+			padding: 0 20px;
+			.links {
+				margin-top: 30px;
+				.important-links {
+					margin-top: 20px;
+				}
+			}
+		}
+	}
+}

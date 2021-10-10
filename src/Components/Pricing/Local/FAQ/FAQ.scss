@@ -1,0 +1,17 @@
+// Import Variables
+@import "@SassVars";
+// Styling FAQ
+.FAQ {
+	padding: 100px 0;
+	background-color: $secondary;
+	// Heading
+	.heading {
+		* {
+			color: #ffffffcc;
+		}
+	}
+	// Testimonial
+	.testimonial-con {
+		margin-top: 200px;
+	}
+}

@@ -1,0 +1,54 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling Ask Item
+.ask-item {
+	padding: 30px 30px;
+	background-color: #2f2725;
+	border-radius: 20px;
+	// Ask
+	.ask {
+		font-size: 17pt;
+		font-weight: 500;
+		color: white;
+		// Icon
+		ion-icon {
+			font-size: 20pt;
+			color: $primary;
+			cursor: pointer;
+		}
+	}
+	// Container For Answer For Solve Small Problem In Padding And Border
+	.con {
+		max-height: 0;
+		line-height: 30pt;
+		color: $main-text;
+		font-size: 12pt;
+		overflow: hidden;
+		transition: max-height 300ms;
+		will-change: max-height;
+		// Answer
+		.answer {
+			padding-top: 20px;
+			border-top: 2px solid rgba(204, 198, 198, 0.479);
+		}
+	}
+}
+//=============Responsive
+
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling Ask
+	.ask-item {
+		padding: 20px 20px;
+		//Ask
+		.ask {
+			font-size: 11pt;
+		}
+		// Answer
+		.answer {
+			font-size: 10pt;
+			line-height: 23pt;
+		}
+	}
+}

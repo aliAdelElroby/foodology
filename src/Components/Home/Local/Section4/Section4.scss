@@ -1,0 +1,32 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling Section4
+.Section4 {
+	padding: 100px 0 170px 0;
+	background-color: $section;
+	// Content Section 4
+	.content-section4 {
+		margin-top: 50px;
+		// Photo
+		.photo {
+			height: 565px;
+			width: 500px;
+			max-width: 100%;
+			border-radius: 20px;
+			overflow: hidden;
+			img {
+				height: 100%;
+			}
+		}
+	}
+}
+//=============Responsive
+
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling Section4
+	.Section4 {
+		padding-bottom: 100px;
+	}
+}

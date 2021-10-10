@@ -1,0 +1,97 @@
+// Import Variables File
+@import "@SassVars";
+
+// Styling User Information Section
+.information {
+	height: 100%;
+	margin-top: 20px;
+	border-left: 1.5px solid $outline;
+	padding-left: 50px;
+	//headEdit
+	.headEdit {
+		margin-bottom: 40px;
+		ion-icon {
+			color: $primary;
+			margin-left: 10px;
+			font-size: 17pt;
+			cursor: pointer;
+		}
+	}
+	// List
+	@mixin list {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		.val {
+			width: 100%;
+		}
+		li {
+			margin-bottom: 25px;
+			display: flex;
+			align-items: center;
+			font-size: 13pt;
+			ion-icon {
+				color: $primary;
+				margin-right: 20px;
+				font-size: 15pt;
+				min-width: 20px;
+			}
+		}
+	}
+	// Shipping
+	.shipping {
+		margin-bottom: 50px;
+		ul.user-information {
+			@include list;
+		}
+	}
+	// TimeDelivery
+	.time-delivery {
+		margin-bottom: 50px;
+	}
+	// Payment
+	.payment {
+		ul.payment-info {
+			@include list;
+		}
+		.price-info {
+			margin-top: 60px;
+			ul {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				li {
+					margin-bottom: 15px;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+				}
+			}
+		}
+	}
+}
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+	// Styling User Information Section
+	.information {
+		border-left: none;
+		border-top: 1.5px solid $outline;
+		padding-top: 50px;
+		padding-left: 0;
+	}
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling User Information Section
+	.information {
+		padding-left: 10px;
+		// Payment
+		.payment {
+			.price-info {
+				padding-right: 10px;
+			}
+		}
+	}
+}

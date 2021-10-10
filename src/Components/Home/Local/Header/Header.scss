@@ -1,0 +1,76 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling Header
+.main-header {
+	overflow: hidden;
+	padding-bottom: 150px;
+	// Content Header
+	.content-header {
+		margin-top: 77px;
+		// Content
+		.content {
+			margin-top: 63px;
+			h1 {
+				span {
+					color: $primary;
+				}
+			}
+			p {
+				color: $main-text;
+				margin: 20px 0 50px 0;
+			}
+		}
+		// Photo
+		.photo {
+			width: 130%;
+			max-width: 767px;
+			height: 561px;
+			transform: translate(5%, 0);
+			background-color: $primary;
+			border-radius: 40px;
+			img {
+				height: 100%;
+				transform: translate(-10%, 0);
+			}
+		}
+	}
+}
+
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+	// Styling Header
+	.main-header {
+		// Content Header
+		.content-header {
+			// Photo
+			.photo {
+				transform: translate(20%, 0);
+				height: 450px;
+				margin-top: 40px;
+			}
+		}
+	}
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling Header
+	.main-header {
+		// Content Header
+		.content-header {
+			margin-top: 0;
+			// Content
+			.content {
+				margin-top: 100px;
+			}
+			// Photo
+			.photo {
+				height: 329px;
+				transform: translate(5%, 0);
+				margin-top: 70px;
+			}
+		}
+	}
+}

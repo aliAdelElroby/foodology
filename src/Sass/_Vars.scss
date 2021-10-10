@@ -1,0 +1,27 @@
+// Colors
+$primary: #fe724c;
+$primary-hover: #e25b37;
+$primary-stroke: #f23400;
+$section: #fff3ef;
+$secondary: #26120c;
+$title-text: #333333;
+$main-text: #707070;
+$outline: #dfe1e6;
+$form: #fafbfc;
+$disabled: #c7c7c7;
+$disabledLight: #eeeeee;
+
+// Sizing
+$navbar-height: 100px;
+$test: #dab1a673;
+
+// Mixin
+@mixin disable($color) {
+	@if $color == "light" {
+		background-color: $disabledLight !important;
+		border: none !important;
+	} @else {
+		background-color: $disabled !important;
+		border: none !important;
+	}
+}

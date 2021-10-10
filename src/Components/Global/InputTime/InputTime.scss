@@ -1,0 +1,72 @@
+// Import Variables File
+@import "@SassVars";
+
+// Styling Custom InputTime
+.input-time {
+	min-height: 55px;
+	width: 179px;
+	padding: 12px 15px 12px 20px;
+	background-color: $form;
+	color: $main-text;
+	border-radius: 20px;
+	border: 2px solid $outline;
+	font-size: 14pt;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-transform: capitalize;
+	transition: all 300ms;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+	&.isFocus {
+		border: 2px solid transparent;
+		box-shadow: 0 0 5px -1px $primary;
+	}
+	// Icon
+	ion-icon {
+		font-size: 18pt;
+		color: $primary;
+	}
+	// Input
+	input {
+		display: none;
+	}
+	// Picker
+	.picker {
+		width: 250px;
+		height: 300px;
+		background-color: white;
+		position: absolute;
+		top: -20px;
+		right: 0;
+		transform: translate(50%, 0);
+		box-shadow: 0 0 7px -4px $title-text;
+		border-radius: 20px;
+		padding: 20px;
+		display:none;
+		.t5 {
+			font-size: 14pt;
+		}
+		// Hours
+		.hours {
+			height: 150px;
+			width: 150px;
+			background-color: #eee;
+			border-radius: 50%;
+			position: relative;
+			padding: 10px;
+			span {
+				display: block;
+				@for $i from 1 through 12 {
+					&:nth-child(#{$i}) {
+						position: absolute;
+						top: 0;
+						left: 50%;
+						transform: translate(-50%, 0);
+					}
+				}
+			}
+		}
+	}
+}

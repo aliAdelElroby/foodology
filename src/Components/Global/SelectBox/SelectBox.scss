@@ -1,0 +1,84 @@
+// Import Variable File
+@import "@SassVars";
+
+// Styling SelectBox
+.SelectBox {
+	min-height: 55px;
+	width: 217px;
+	padding: 12px 15px 12px 20px;
+	background-color: $form;
+	border-radius: 20px;
+	border: 2px solid $outline;
+	font-size: 14pt;
+	color: $main-text;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-transform: capitalize;
+	transition: all 300ms;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+	&.isFocus {
+		border: 2px solid transparent;
+		box-shadow: 0 0 5px -1px $primary;
+	}
+	select {
+		display: none;
+	}
+	.con {
+		width: 100%;
+		position: absolute;
+		top: calc(100% + 20px);
+		left: 0;
+		overflow: hidden;
+		box-shadow: 0 0 7px -4px $title-text;
+		border-radius: 20px;
+		transition: max-height 300ms;
+		will-change: max-height;
+		z-index: 101; // Select Item
+		// Slider
+		.slider {
+			background-color: white;
+			padding: 30px 20px;
+			.select-item {
+				padding-bottom: 25px;
+				font-size: 12pt;
+				color: #707070b6;
+				transition: all 300ms;
+				&.active {
+					color: $primary;
+					transform: translate(30px, 0);
+				}
+				&:last-child {
+					padding-bottom: 0px;
+				}
+			}
+		}
+	}
+}
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling SelectBox
+	.SelectBox {
+		min-height: 40px;
+		width: 100%;
+		max-width: 170px;
+		font-size: 11pt;
+		padding: 8px 11px 8px 16px;
+		.con {
+			// Slider
+			.slider {
+				padding: 20px 15px;
+				.select-item {
+					font-size: 10pt;
+				}
+			}
+		}
+	}
+}

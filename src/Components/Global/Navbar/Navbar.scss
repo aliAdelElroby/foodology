@@ -1,0 +1,238 @@
+// Import Variables
+@import "@SassVars";
+
+// Menu
+%menu {
+	height: 300px;
+	width: 200px;
+	padding: 20px;
+	background-color: white;
+	position: absolute;
+	top: calc(100% + 20px);
+	right: 10%;
+	border-radius: 10px 0px 10px 10px;
+	box-shadow: 0 0 7px -1px rgba(109, 108, 108, 0.486);
+	z-index: 200;
+	&.hide {
+		display: none !important;
+	}
+	&::before {
+		content: "";
+		height: 20px;
+		width: 20px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		border-bottom: 15px solid $primary;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		transform: translate(0, -100%);
+	}
+	a {
+		text-align: center;
+		color: $primary;
+		font-size: 13pt;
+		transition: color 300ms;
+		&:hover {
+			color: $primary-hover;
+		}
+	}
+}
+// Icon
+%icon {
+	height: 45px;
+	width: 45px;
+	background-color: $primary;
+	border-radius: 15px;
+	position: relative;
+}
+
+// Styling Navbar
+.main-navbar {
+	width: 100%;
+	height: $navbar-height;
+	// Menu
+	.menu {
+		height: 100%;
+		margin-right: 13px;
+		display: none;
+	}
+	// Logo
+	.logo {
+		img {
+			height: 36px;
+		}
+	}
+
+	// Links
+	.links {
+		ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			li {
+				display: inline-block;
+				margin-right: 50px;
+				&:last-child {
+					margin-right: 0px;
+				}
+				a {
+					font-size: 16pt;
+					font-weight: 600;
+					color: $secondary;
+					text-decoration: none;
+					transition: color 300ms;
+					&:hover {
+						color: $main-text;
+					}
+				}
+			}
+		}
+	}
+	& > a {
+		margin-left: 50px;
+	}
+	// User
+	.user {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 50px;
+		.icon {
+			ion-icon {
+				color: white;
+				font-weight: 900;
+				font-size: 20pt;
+				margin-top: 5px;
+			}
+		}
+	}
+	// Cart
+	.cart {
+		@extend %icon;
+		margin-left: 20px;
+		img {
+			height: 50%;
+			cursor: pointer;
+		}
+		// Menu
+
+		.menu-cart {
+			@extend %menu;
+			// List
+			.list {
+				overflow-y: scroll;
+				&::-webkit-scrollbar {
+					display: none;
+				}
+			}
+			// See More
+			.see-more {
+				padding-top: 10px;
+			}
+		}
+	}
+	// User
+	.user {
+		@extend %icon;
+		// Menu User
+		.menu-user {
+			@extend %menu;
+			// name
+			.name {
+				font-size: 15pt;
+				font-weight: 500;
+				color: $title-text;
+				.val {
+					font-size: 12pt;
+					font-weight: 400;
+					color: $main-text;
+					margin-top: 2px;
+				}
+			}
+		}
+	}
+}
+
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+	.main-navbar {
+		height: 100px;
+
+		// Menu
+		.menu {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 30px;
+			img {
+				height: 20px;
+				margin-top: -5px;
+			}
+		}
+		// Logo
+		.logo {
+			img {
+				height: 30px;
+			}
+		}
+		// Links
+		.links {
+			display: none;
+		}
+		// Cart
+		.cart,
+		.user {
+			height: 35px;
+			width: 35px;
+			margin-left: 25px;
+			border-radius: 13px;
+			.icon {
+				ion-icon {
+					font-size: 13pt !important;
+				}
+			}
+		}
+	}
+}
+// Mobile
+@media (max-width: 767.98px) {
+	.main-navbar {
+		height: 67px;
+
+		// Menu
+		.menu {
+			margin-right: 13px;
+			img {
+				height: 13px;
+				margin-top: -5px;
+			}
+		}
+
+		// Logo
+		.logo {
+			img {
+				height: 25px;
+			}
+		}
+		// Links
+		.links {
+			display: none;
+		}
+		// Cart
+		.cart,
+		.user {
+			height: 25px;
+			width: 25px;
+			margin-left: 20px;
+			border-radius: 9px;
+			.icon {
+				ion-icon {
+					font-size: 11pt !important;
+				}
+			}
+		}
+	}
+}

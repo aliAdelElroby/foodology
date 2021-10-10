@@ -1,0 +1,27 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling ListItem
+.list-item {
+	border-bottom: 1.5px solid $outline;
+	padding-bottom: 20px;
+	margin-bottom: 30px;
+	&:last-child {
+		border-bottom: none;
+	}
+	&::before {
+		counter-increment: list;
+		content: "0" counter(list);
+		font-size: 30pt;
+		color: $primary;
+		font-weight: 700;
+		transform: translate(0, -3%);
+	}
+	// Data
+	.data {
+		padding-left: 20px;
+		p {
+			margin-top: 20px;
+		}
+	}
+}

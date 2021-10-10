@@ -1,0 +1,145 @@
+// Globaly Style
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+a {
+	text-decoration: none;
+}
+html {
+	width: 100%;
+	overscroll-behavior-y: contain;
+	-webkit-overflow-scrolling: touch;
+}
+body {
+	width: 100%;
+	height: 100%;
+	overscroll-behavior-y: contain;
+	&.no-scroll {
+		overflow-y: scroll;
+		position: fixed;
+	}
+}
+// Focus
+.focus {
+	border: 2px solid $primary-stroke !important;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+	box-shadow: 0 0 0 1000px white inset !important;
+	-webkit-text-fill-color: $title-text !important;
+	&:disabled {
+		box-shadow: 0 0 0 1000px $disabledLight inset !important;
+	}
+}
+.overlay-blur {
+	position: absolute;
+	inset: 0;
+	background-color: #5618094d;
+	z-index: 1;
+}
+
+//===========================Typography
+$sizes: 55pt 45pt 30pt 20pt 15pt;
+@mixin t($s, $w: 600) {
+	font-size: $s;
+	font-weight: $w;
+	color: $title-text;
+}
+@each $size in $sizes {
+	$index: index($sizes, $size);
+	@if $index == 5 {
+		.t#{$index} {
+			@include t($size, 400);
+			color: $main-text;
+		}
+	} @else {
+		.t#{$index} {
+			@include t($size, 600);
+		}
+	}
+}
+
+.title-top {
+	color: $primary;
+	font-size: 12pt;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+//===========================Buttons
+
+@mixin btn($p, $s, $w) {
+	// Button Primary Large And Medium
+	width: max-content;
+	border: none;
+	background-color: $primary;
+	color: white;
+	outline: none;
+	border-radius: 30px;
+	transition: all 300ms;
+	border: 2px solid transparent;
+	padding: $p;
+	font-size: $s;
+	font-weight: $w;
+	&:hover {
+		background-color: $primary-hover;
+	}
+	&.disabled {
+		// Button Primary Large And Medium Disabled
+		background-color: $disabled;
+		border: none !important;
+	}
+}
+.btnPL {
+	// Button Primary Large
+	@include btn(14px 20px, 16pt, 600);
+}
+
+.btnPM {
+	// Button Primary Medium
+	@include btn(10px 29px, 18pt, 700);
+}
+
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+}
+// Mobile
+@media (max-width: 767.98px) {
+	$sizes: 35pt 30pt 25pt 18pt 12pt;
+	@each $size in $sizes {
+		$index: index($sizes, $size);
+		@if $index == 1 {
+			.t#{$index} {
+				font-size: $size;
+				line-height: 50pt;
+			}
+		} @else {
+			.t#{$index} {
+				font-size: $size;
+			}
+		}
+	}
+	.title-top {
+		font-size: 10pt;
+	}
+	.btnPL {
+		// Button Primary Large
+		padding: 12px 18px;
+		font-size: 14pt;
+	}
+
+	.btnPM {
+		// Button Primary Medium
+		padding: 8px 27px;
+		font-size: 16pt;
+	}
+}

@@ -1,0 +1,122 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling Input
+.input {
+	label {
+		font-size: 13pt;
+		color: #5a7184;
+		text-align: left;
+		margin-bottom: 10px;
+		font-weight: 500;
+	}
+	// Input Field Container For Input Element
+	.inputField {
+		height: 60px;
+		width: 100%;
+		background-color: $outline;
+		border-radius: 30px;
+		position: relative;
+		overflow: hidden;
+		transition: background-color 500ms;
+		&::before {
+			content: "";
+			width: 600px;
+			height: 600px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transition: all 500ms;
+			background-image: conic-gradient(
+				#81b6f1 0%60%,
+				transparent 60%100%
+			);
+			opacity: 0;
+			animation: check 6s infinite linear;
+			animation-play-state: paused;
+		}
+		input {
+			height: calc(100% - 4px);
+			width: calc(100% - 4px);
+			background-color: $form;
+			border: none;
+			outline: none;
+			transition: box-shadow 300ms;
+			position: absolute;
+			inset: 2px;
+			border-radius: inherit;
+			color: $title-text;
+			&:focus {
+				box-shadow: 0 0 5px 0px $primary;
+			}
+			&:disabled {
+				@include disable("light");
+			}
+		}
+		%positionIcon {
+			height: 24px;
+			position: absolute;
+			right: 25px;
+			top: 50%;
+			transform: translate(0, -50%);
+		}
+		.status {
+			@extend %positionIcon;
+			z-index: 9;
+			ion-icon {
+				font-size: 18pt;
+				transition: opacity 800ms;
+				opacity: 0;
+			}
+		}
+		.eye {
+			@extend %positionIcon;
+			cursor: pointer;
+			z-index: 10;
+			ion-icon {
+				font-size: 18pt;
+				color: $primary;
+				transition: opacity 800ms;
+			}
+		}
+	}
+	.inputField.check {
+		&::before {
+			opacity: 1;
+			animation-play-state: running;
+		}
+	}
+	.inputField.checked {
+		background-color: #028b0294;
+		&::before {
+			animation-play-state: paused;
+		}
+		input {
+			padding-right: 60px !important;
+		}
+		ion-icon {
+			color: #028b0294;
+			opacity: 1;
+		}
+	}
+	.inputField.notFound {
+		background-color: #f5575794;
+		&::before {
+			animation-play-state: paused;
+		}
+		input {
+			padding-right: 60px !important;
+		}
+		ion-icon {
+			color: #f55757;
+			opacity: 1;
+		}
+	}
+}
+
+@keyframes check {
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}

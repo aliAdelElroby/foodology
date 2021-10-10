@@ -1,0 +1,38 @@
+// Styling Menus
+section.menus {
+	padding: 100px 0;
+	// Content
+	.content {
+		margin-top: 100px;
+		// Image
+		.image {
+			max-width: 565px;
+			height: 565px;
+			border-radius: 30px;
+			overflow: hidden;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling Menus
+	section.menus {
+		// Content
+		.content {
+			margin-top: 40px;
+			// Image
+			.image {
+				max-width: 565px;
+				height: 353px;
+				border-radius: 30px;
+				overflow: hidden;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+}

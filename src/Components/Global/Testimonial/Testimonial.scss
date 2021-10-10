@@ -1,0 +1,60 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling Testimonial
+.testimonial {
+	// Img
+	.img {
+		width: 120%;
+		height: 350px;
+		border-radius: 0 30px 0 0;
+		overflow: hidden;
+		img {
+			height: 100%;
+		}
+	}
+	// Info
+	.info {
+		top: 0;
+		right: 0;
+		padding: 40px 30px;
+		border-radius: 0 0 30px 10px;
+		background-color: $section;
+		// Name
+		.name {
+			font-weight: 600;
+			color: $primary;
+		}
+		// Job
+		.job {
+			color: $secondary;
+		}
+	}
+}
+
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling Testimonial
+	.testimonial {
+		// Img
+		.img {
+			height: auto;
+			img {
+				width: 100%;
+			}
+		}
+		// Info
+		.info {
+			background-color: #e7e6e650;
+			// name
+			.name {
+				font-size: 20pt;
+			}
+		}
+	}
+}

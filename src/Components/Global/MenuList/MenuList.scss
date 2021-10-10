@@ -1,0 +1,42 @@
+// Import Variables File
+@import "@SassVars";
+
+// Styling MenuList
+.menu-list {
+	text-align: right;
+	margin-top: 30px;
+	h4 {
+		font-weight: 600;
+		margin-bottom: 25px;
+	}
+	// List
+	.list {
+		margin-top: 50px;
+	}
+	// Controls
+	.controls {
+		margin-top: 30px;
+		.back {
+			margin-right: 20px;
+		}
+		.back,
+		.next {
+			height: 42px;
+			width: 42px;
+			background-color: $primary;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: opacity 300ms;
+			cursor: pointer;
+			i {
+				color: white;
+				font-size: 15pt;
+			}
+		}
+		.disable {
+			opacity: 0.6;
+		}
+	}
+}

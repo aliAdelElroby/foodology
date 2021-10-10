@@ -1,0 +1,36 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling Counter
+.counter {
+	// Counter
+	.counter {
+		padding: 10px;
+		border: 1px solid $outline;
+		border-radius: 30px;
+		user-select: none;
+		// Value
+		.value {
+			color: $title-text;
+			font-size: 15pt;
+			user-select: none;
+		}
+		.add,
+		.remove {
+			display: flex;
+			align-items: center;
+			&.disable {
+				ion-icon {
+					opacity: 0.5;
+				}
+			}
+		}
+		ion-icon {
+			font-size: 20pt;
+			color: $primary;
+			font-weight: 900;
+			cursor: pointer;
+			transition: opacity 300ms;
+		}
+	}
+}

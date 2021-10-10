@@ -1,0 +1,98 @@
+// Import Variables File
+@import "@SassVars";
+
+// Styling About Page
+.about-page {
+	padding-top: 70px;
+	// Photo
+	.photo {
+		min-height: 487px;
+		padding: 70px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		border-radius: 25px;
+		overflow: hidden;
+		// Heading
+		.heading {
+			z-index: 2;
+			p {
+				color: rgba(255, 255, 255, 0.74);
+				line-height: 25pt;
+			}
+		}
+	}
+	// content-about
+	.content-about {
+		margin-top: 80px;
+		// Heading
+		.heading {
+			margin-top: 65px;
+		}
+	}
+	// con-gallery
+	.con-gallery {
+		margin: 100px 0 150px 0;
+	}
+}
+
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+	// Styling About
+	.about-page {
+		// Photo
+		.photo {
+			background-image: none !important;
+			background-size: auto;
+			// Overlay
+			.overlay-blur {
+				display: none;
+			}
+			// Heading
+			.heading {
+				h2 {
+					color: $title-text !important;
+				}
+				p {
+					color: $main-text;
+				}
+			}
+		}
+		// content-about
+		.content-about {
+			// Heading
+			.heading {
+				margin-top: 0px;
+				margin-bottom: 65px;
+			}
+		}
+	}
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling About
+	.about-page {
+		// Photo
+		.photo {
+			padding: 70px 0;
+			border-radius: 0;
+			// Heading
+			.heading {
+				p {
+					br {
+						display: none;
+					}
+				}
+			}
+		}
+		// content-about
+		.content-about {
+			// Heading
+			.heading {
+				margin-top: 0px;
+				margin-bottom: 65px;
+			}
+		}
+	}
+}

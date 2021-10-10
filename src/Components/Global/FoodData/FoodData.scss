@@ -1,0 +1,11 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling FoodData
+.FoodData {
+	padding-bottom: 20px;
+	.cal {
+		color: $primary;
+		font-size: 14pt;
+	}
+}

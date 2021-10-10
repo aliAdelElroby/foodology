@@ -1,0 +1,39 @@
+// Import Variables
+@import "@SassVars";
+
+// Social Button
+.social-button {
+	button {
+		width: 100%;
+		border-radius: 30px;
+		background-color: $primary;
+		border: none;
+		color: white;
+		font-size: 16pt;
+		font-weight: 600;
+		.icon {
+			height: 50px;
+			img {
+				height: 100%;
+			}
+		}
+	}
+}
+
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Social Button
+	.social-button {
+		button {
+			font-size: 13pt;
+			.icon {
+				height: 40px;
+			}
+		}
+	}
+}

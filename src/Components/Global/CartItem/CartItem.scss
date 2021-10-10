@@ -1,0 +1,35 @@
+// Import Variables File
+@import "@SassVars";
+// Styling Cart Item
+.cart-item {
+	padding-bottom: 7px;
+	margin-bottom: 7px;
+	box-shadow: 0 4px 3px -4px $outline;
+	transition: opacity 300ms;
+	z-index: 300;
+	&.dragging {
+		opacity: 0.5;
+		max-width: 170px;
+		box-shadow: none;
+	}
+	// Image
+	.image {
+		height: 40px;
+		width: 50px;
+		min-height: 40px;
+		min-width: 40px;
+		max-height: 40px;
+		max-width: 40px;
+		border-radius: 7px;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	// Headline
+	.headline {
+		font-size: 11pt;
+		color: $title-text;
+	}
+}

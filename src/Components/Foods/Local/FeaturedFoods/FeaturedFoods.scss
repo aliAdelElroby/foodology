@@ -1,0 +1,91 @@
+// Import Variables File
+@import "@SassVars";
+
+// Styling FeaturedFoods
+section.featured-foods {
+	min-height: 100vh;
+	padding-top: 100px;
+
+	// Content
+	.content {
+		margin-top: 75px;
+
+		// Set Section
+		.set-section {
+			// Main Categories
+			.main-categories {
+				width: 100%;
+				// List
+				.list {
+					width: 100%;
+					margin-bottom: 70px;
+					border-right: 2px solid $outline;
+					ul {
+						padding: 0;
+						margin: 0;
+						list-style: none;
+						li {
+							margin-bottom: 30px;
+							a {
+								font-size: 20pt;
+								font-weight: 600;
+								color: $main-text;
+								transition: color 300ms;
+								&.active {
+									color: $primary;
+								}
+							}
+						}
+					}
+				}
+			}
+			// List
+			.categories {
+				width: 100%;
+				max-width: 250px;
+				// Label
+				.label {
+					margin-bottom: 15px;
+					ion-icon {
+						margin-right: 5px;
+						color: $primary;
+						font-size: 18pt;
+					}
+				}
+			}
+		}
+	}
+}
+// Tablet
+@media (max-width: 991.98px) {
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling FeaturedFoods
+	section.featured-foods {
+		// Content
+		.content {
+			// Set Section
+			.set-section {
+				// Main Categories
+				.main-categories {
+					padding: 0;
+					// List
+					.list {
+						border: none;
+						ul {
+							li {
+								a {
+									font-size: 15pt;
+								}
+							}
+						}
+					}
+				}
+				.counter {
+					display: none !important;
+				}
+			}
+		}
+	}
+}

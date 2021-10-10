@@ -1,0 +1,58 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling PricingCard
+.PricingCard {
+	width: 100%;
+	max-width: 367px;
+	min-height: 423px;
+	padding: 30px;
+	border: 2px solid $outline;
+	border-radius: 20px;
+	// Info
+	.info {
+		border-bottom: 1px solid $outline;
+		// Icon
+		.icon {
+			width: 100px;
+			img {
+				width: 100%;
+			}
+		}
+		// Data
+		.data {
+			margin-left: 20px;
+			// Name
+			.name {
+				font-size: 26pt;
+				font-weight: 500;
+			}
+		}
+	}
+
+	// List
+	.list {
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			padding-left: 20px;
+			li {
+				margin-bottom: 10px;
+				position: relative;
+				&::before {
+					content: "";
+					width: 10px;
+					height: 10px;
+					margin-right: 10px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					border-radius: 50%;
+					background-color: $title-text;
+					transform: translate(-20px, 100%);
+				}
+			}
+		}
+	}
+}

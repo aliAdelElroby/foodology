@@ -1,0 +1,40 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling TestimonialInfo
+.TestimonialInfo {
+	padding: 60px 50px;
+	.comment {
+		span {
+			height: 20px;
+			margin-top: 50px;
+			color: $primary;
+			font-size: 72pt;
+			line-height: 40pt;
+			opacity: 0.5;
+			display: block;
+		}
+		.headline {
+			color: $primary;
+		}
+		p {
+			margin-top: 10px;
+		}
+	}
+}
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+	// Styling TestimonialInfo
+	.TestimonialInfo {
+		padding: 20px 10px;
+	}
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling TestimonialInfo
+	.TestimonialInfo {
+		padding: 60px 10px;
+	}
+}

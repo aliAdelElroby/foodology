@@ -1,0 +1,45 @@
+// Import Variables
+@import "@SassVars";
+
+// Styling primary-card
+.primary-card {
+	max-width: 333px;
+	height: 390px;
+	padding: 66px 20px;
+	margin: auto;
+	border: 2px solid $outline;
+	border-radius: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	.t5 {
+		width: 100%;
+	}
+	.img {
+		width: 68px;
+		img {
+			width: 100%;
+		}
+	}
+}
+
+//=============Responsive
+
+// Tablet
+@media (max-width: 991.98px) {
+	// Card
+}
+// Mobile
+@media (max-width: 767.98px) {
+	// Card
+	.primary-card {
+		width: 90% !important;
+		min-width: 300px;
+		height: 300px;
+		border-radius: 30px;
+		padding: 40px 10px;
+		margin: 0 auto 50px auto;
+	}
+}

@@ -1,0 +1,12 @@
+// Import Vars File
+@import "@SassVars";
+
+// Styling EditableDiv
+.editable-input {
+	width: 100%;
+	display: block;
+	border: none;
+	outline: none;
+	border-bottom: 1.5px solid $outline;
+	padding-bottom: 5px;
+}
