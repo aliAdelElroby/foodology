@@ -19,13 +19,12 @@ function Login({ setAuth }) {
 	// Import Data From Context
 	const users = useContext(UserContext);
 
-	// Constants
-	const clientIdGoogle =
-		"101275596193-mv48v4l51somsi7aqvlc0nkgofn4669t.apps.googleusercontent.com";
+	// Google Hook
 	const { signIn } = useGoogleLogin({
-		clientId: clientIdGoogle,
+		clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
 		onSuccess: loginWithGoogle
 	});
+
 	// States
 	const [status, setStatus] = useState(false);
 	const [email] = useState(React.createRef());
@@ -34,6 +33,7 @@ function Login({ setAuth }) {
 	// Functions
 	useEffect(
 		_ => {
+			//Redirect To Home Page If IsAuth
 			if (isAuth()) {
 				history.push("/");
 			}
