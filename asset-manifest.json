@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/foodology/static/css/main.a420bcae.chunk.css",
-    "main.js": "/foodology/static/js/main.3e26c71e.chunk.js",
-    "main.js.map": "/foodology/static/js/main.3e26c71e.chunk.js.map",
-    "runtime-main.js": "/foodology/static/js/runtime-main.475ede45.js",
-    "runtime-main.js.map": "/foodology/static/js/runtime-main.475ede45.js.map",
+    "main.js": "/foodology/static/js/main.4472dca3.chunk.js",
+    "main.js.map": "/foodology/static/js/main.4472dca3.chunk.js.map",
+    "runtime-main.js": "/foodology/static/js/runtime-main.4bd1afa8.js",
+    "runtime-main.js.map": "/foodology/static/js/runtime-main.4bd1afa8.js.map",
     "static/css/2.7265b85f.chunk.css": "/foodology/static/css/2.7265b85f.chunk.css",
-    "static/js/2.a393604b.chunk.js": "/foodology/static/js/2.a393604b.chunk.js",
-    "static/js/2.a393604b.chunk.js.map": "/foodology/static/js/2.a393604b.chunk.js.map",
-    "static/js/3.40d99c62.chunk.js": "/foodology/static/js/3.40d99c62.chunk.js",
-    "static/js/3.40d99c62.chunk.js.map": "/foodology/static/js/3.40d99c62.chunk.js.map",
+    "static/js/2.c38c47b4.chunk.js": "/foodology/static/js/2.c38c47b4.chunk.js",
+    "static/js/2.c38c47b4.chunk.js.map": "/foodology/static/js/2.c38c47b4.chunk.js.map",
+    "static/js/3.4f836797.chunk.js": "/foodology/static/js/3.4f836797.chunk.js",
+    "static/js/3.4f836797.chunk.js.map": "/foodology/static/js/3.4f836797.chunk.js.map",
     "index.html": "/foodology/index.html",
     "static/css/2.7265b85f.chunk.css.map": "/foodology/static/css/2.7265b85f.chunk.css.map",
     "static/css/main.a420bcae.chunk.css.map": "/foodology/static/css/main.a420bcae.chunk.css.map",
-    "static/js/2.a393604b.chunk.js.LICENSE.txt": "/foodology/static/js/2.a393604b.chunk.js.LICENSE.txt",
+    "static/js/2.c38c47b4.chunk.js.LICENSE.txt": "/foodology/static/js/2.c38c47b4.chunk.js.LICENSE.txt",
     "static/media/Picture.faae4dfc.jpg": "/foodology/static/media/Picture.faae4dfc.jpg",
     "static/media/bg.dabf5ee5.jpg": "/foodology/static/media/bg.dabf5ee5.jpg",
     "static/media/cart.0688be00.svg": "/foodology/static/media/cart.0688be00.svg",
@@ -27,10 +27,10 @@
     "static/media/section4.ee33f241.jpg": "/foodology/static/media/section4.ee33f241.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.475ede45.js",
+    "static/js/runtime-main.4bd1afa8.js",
     "static/css/2.7265b85f.chunk.css",
-    "static/js/2.a393604b.chunk.js",
+    "static/js/2.c38c47b4.chunk.js",
     "static/css/main.a420bcae.chunk.css",
-    "static/js/main.3e26c71e.chunk.js"
+    "static/js/main.4472dca3.chunk.js"
   ]
 }
