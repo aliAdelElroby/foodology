@@ -3,14 +3,15 @@ import "./ItemsPayment.scss";
 // Import Components
 import { lazy } from "@lazy";
 // Import Data
-import { CartContext } from "@/App";
+import { CartContext } from "@helpers";
 function ItemsPayment() {
 	// Constants
-	const CartItems = useContext(CartContext);
+	const cartItems = useContext(CartContext);
 
 	// Maps
-	const CartItemsApper = CartItems.items.map(
-		({ id, images: { sub1 }, headline, price = "$10" }, index) => {
+	const CartItemsApper = cartItems
+		.get()
+		.map(({ id, images: { sub1 }, headline, price = "$10" }, index) => {
 			return (
 				<div
 					className="col-4"
@@ -28,15 +29,14 @@ function ItemsPayment() {
 					</div>
 				</div>
 			);
-		}
-	);
+		});
 	return (
 		<section className="items-payment">
 			<div className="row">
 				<div className="heading text-center">
 					<h2 className="t2">Items & Payment</h2>
 					<div className="title-top mt-4">
-						{CartItems.items.length || "no"} items
+						{cartItems.get().length || "no"} items
 					</div>
 				</div>
 			</div>

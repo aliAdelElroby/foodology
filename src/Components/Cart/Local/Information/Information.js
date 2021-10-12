@@ -3,38 +3,41 @@ import "./Information.scss";
 
 // Import Components
 import MainButton from "@global/MainButton/MainButton";
-import { auth } from "@helpers";
 import InputTime from "@global/InputTime/InputTime";
 import EditableDiv from "../../Global/EditableDiv/EditableDiv";
 
 // Import Data
-import { CartContext } from "@/App";
+import { CartContext, UserContext } from "@helpers";
+
 function Information() {
 	// Constants
-	const CartItems = useContext(CartContext);
+	const cartItems = useContext(CartContext);
+	const auth = useContext(UserContext);
+
 	const data = {
 		shipping: {
-			name: auth().displayName || "Not Set Yet!",
-			address: auth().address || "Not Set Yet!",
-			phone: auth().phone || "Not Set Yet!",
+			name: auth.get().displayName || "Not Set Yet!",
+			address: auth.get().address || "Not Set Yet!",
+			phone: auth.get().phone || "Not Set Yet!",
 			editable: false
 		},
 		payment: {
-			placeholderName: auth().cardPlaceholderName || "Not Set Yet!",
-			cardNumber: auth().cardNumber || "Not Set Yet!",
-			cardDate: auth().cardDate || "----",
+			placeholderName: auth.get().cardPlaceholderName || "Not Set Yet!",
+			cardNumber: auth.get().cardNumber || "Not Set Yet!",
+			cardDate: auth.get().cardDate || "----",
 			editable: false
 		}
 	};
 	// States
 	const [editableShipping, setEditableShipping] = useState(false);
 	const [editablePayment, setEditablePayment] = useState(false);
-	const [shipment, setShipment] = useState(15);
+	const [shipment] = useState(15);
 
 	// Functions
 	function getPrice() {
-		if (CartItems.items && CartItems.items.length > 0) {
-			var result = CartItems.items
+		if (cartItems.get() && cartItems.get().length) {
+			var result = cartItems
+				.get()
 				.map(el => (el.price ? parseFloat(el.price) : 0))
 				.reduce((p, c) => p + c);
 		}

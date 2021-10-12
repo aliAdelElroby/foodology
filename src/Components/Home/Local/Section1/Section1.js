@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Section1.scss";
 // Import Data
-import data from "./data/data";
+import data from "@data/Home/Section1/data";
 
 // Import Components
-import Card from "../../../Global/Card/Card";
-import DeliveryCard from "../../../Global/DeliveryCard/DeliveryCard";
+import Card from "@global/Card/Card";
+import DeliveryCard from "@global/DeliveryCard/DeliveryCard";
 
 function Section1() {
 	// States
@@ -33,15 +33,18 @@ function Section1() {
 		);
 	});
 	return (
-		<div className="Section1">
+		<div className="Section1 overflow-hidden">
 			<div className="container">
 				<div className="row">
+					{/* Heading For Section1 */}
 					<div className="heading">
 						<div className="title-top">COMMITMENT</div>
 						<h2 className="t2">Why we are good for you</h2>
 						<p className="t5">
 							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit form du lahoke.
+							elit
+							<br />
+							form du lahoke.
 						</p>
 					</div>
 				</div>

@@ -12,8 +12,12 @@ const FoodsData = [
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et .",
 		calories: "70gr - Chicken",
 		images: {
-			main: "/assets/foods/meat1-main.png",
-			sub1: "/assets/foods/meat1.jpg"
+			main: `${
+				process.env.REACT_APP_LINK_START_WITH
+			}/assets/foods/meat1-main.png`,
+			sub1: `${
+				process.env.REACT_APP_LINK_START_WITH
+			}/assets/foods/meat1.jpg`
 		},
 		price: 15,
 		quantity: 10,
@@ -27,8 +31,12 @@ const FoodsData = [
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et .",
 		calories: "",
 		images: {
-			main: "/assets/foods/meat2.jpg",
-			sub1: "/assets/foods/meat2.jpg"
+			main: `${
+				process.env.REACT_APP_LINK_START_WITH
+			}/assets/foods/meat2.jpg`,
+			sub1: `${
+				process.env.REACT_APP_LINK_START_WITH
+			}/assets/foods/meat2.jpg`
 		},
 		price: 18,
 		quantity: 30,
@@ -41,7 +49,9 @@ const FoodsData = [
 		desc:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et .",
 		calories: "",
-		images: ["/assets/foods/meat2.jpg"],
+		images: [
+			`${process.env.REACT_APP_LINK_START_WITH}/assets/foods/meat2.jpg`
+		],
 		price: 20,
 		quantity: 2,
 		ingredients: "",
@@ -60,13 +70,15 @@ const FoodsData = [
 	},
 	{
 		id: 5,
-		headline: "a",
+		headline: "Vegetable Salad",
 		desc:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et .",
 		calories: "",
 		images: {
-			main: "/assets/foods/v1.jpg",
-			sub1: "/assets/foods/v1.jpg"
+			main: `${
+				process.env.REACT_APP_LINK_START_WITH
+			}/assets/foods/v1.jpg`,
+			sub1: `${process.env.REACT_APP_LINK_START_WITH}/assets/foods/v1.jpg`
 		},
 		price: 10,
 		ingredients: "",

@@ -3,7 +3,7 @@ import "./Value.scss";
 // Import Components
 import Card from "@global/Card/Card";
 // Import Data
-import data from "./data/data";
+import data from "@data/About/Value/data";
 function Value() {
 	// States
 	const [mobile, setMobile] = useState(false);
@@ -34,6 +34,7 @@ function Value() {
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
+						{/* Heading */}
 						<div className="heading text-center">
 							<div className="title-top">VALUE</div>
 							<h2 className="t2 mb-4">Our Value</h2>

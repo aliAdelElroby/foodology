@@ -5,10 +5,9 @@ import "./FoodData.scss";
 import { motion } from "framer-motion";
 import MainButton from "../MainButton/MainButton";
 import StrokeButton from "../StrokeButton/StrokeButton";
-import { addWithIdToLocal } from "@helpers";
 
 // Import Data
-import { CartContext } from "@/App";
+import { CartContext } from "@helpers";
 
 function FoodData({ data, delay }) {
 	// States
@@ -16,7 +15,7 @@ function FoodData({ data, delay }) {
 	const [dataApper, setDataApper] = useState(animation ? null : data);
 
 	// Constants
-	const CartItems = useContext(CartContext);
+	const cartItems = useContext(CartContext);
 
 	// Functions
 	useEffect(
@@ -70,10 +69,7 @@ function FoodData({ data, delay }) {
 				<StrokeButton val="See More" />
 				<MainButton
 					data={{ size: "m", val: "ADD", bootstrap: "ms-4" }}
-					onClick={_ => {
-						addWithIdToLocal(dataApper.id, "foods");
-						CartItems.update("foods");
-					}}
+					onClick={_ => cartItems.add(data.id)}
 				/>
 			</div>
 		</div>

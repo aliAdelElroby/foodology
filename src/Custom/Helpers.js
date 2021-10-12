@@ -1,4 +1,7 @@
+import React, { useState } from "react";
+
 // Import Data
+import Foodsdata from "@data/Foods/FoodsData";
 import users from "@data/Users/Users";
 
 export function getWithId(id, arr) {
@@ -68,3 +71,121 @@ export function logout() {
 		localStorage.removeItem("user");
 	}
 }
+
+// Contexts
+export const FoodsContext = React.createContext();
+export const CartContext = React.createContext();
+export const UserContext = React.createContext();
+
+function Helpers({ children }) {
+	// States
+	const [auth, setAuth] = useState({
+		// Auth
+		update: () => {
+			let result = { ...auth };
+			setAuth(result);
+		},
+		check: () => {
+			return !!localStorage.getItem("user");
+		},
+		get: () => {
+			if (localStorage.getItem("user")) {
+				const id = localStorage.getItem("user");
+				return getWithId(id, users);
+			} else {
+				return "You Are Not Login";
+			}
+		},
+		login: (
+			type,
+			email,
+			pass = null,
+			successFunc = null,
+			errorFunc = null
+		) => {
+			let result;
+			switch (type) {
+				case "plain":
+					result = users.filter(el => {
+						return el.email === email && el.password === pass;
+					});
+					if (result.length) {
+						localStorage.setItem("user", result[0].id);
+						if (successFunc) {
+							successFunc();
+						}
+					} else {
+						if (errorFunc) {
+							errorFunc();
+						}
+					}
+					break;
+				case "google":
+					result = users.filter(el => {
+						return el.email === email;
+					});
+					if (result.length) {
+						localStorage.setItem("user", result[0].id);
+						if (successFunc) {
+							successFunc();
+						}
+					} else {
+						if (errorFunc) {
+							errorFunc();
+						}
+					}
+					break;
+				default:
+					return false;
+			}
+		},
+		logout: () => {
+			if (localStorage.getItem("user")) {
+				localStorage.removeItem("user");
+			}
+			auth.update();
+		}
+	});
+	const [foods, setFoods] = useState({
+		// Foods
+		update: () => {
+			let result = { ...foods };
+			setFoods(result);
+		},
+		get: () => {
+			return Foodsdata || [];
+		}
+	});
+	const [cartItems, setCartItems] = useState({
+		// Foods
+		update: () => {
+			let result = { ...cartItems };
+			setCartItems(result);
+		},
+		get: () => {
+			let result = getItemsWithId(getLocalData("foods"), Foodsdata);
+			return result || [];
+		},
+		add: id => {
+			addWithIdToLocal(id, "foods");
+			cartItems.update();
+		},
+		clear: () => {
+			localStorage.removeItem("foods");
+			cartItems.update();
+		}
+	});
+
+	// Functions
+	return (
+		<UserContext.Provider value={auth}>
+			<FoodsContext.Provider value={foods}>
+				<CartContext.Provider value={cartItems}>
+					{children}
+				</CartContext.Provider>
+			</FoodsContext.Provider>
+		</UserContext.Provider>
+	);
+}
+
+export default Helpers;

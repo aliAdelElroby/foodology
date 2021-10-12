@@ -6,10 +6,12 @@ import { NavLink } from "react-router-dom";
 function FoodItem({ data: { id, image, headline } }) {
 	return (
 		<div className="food-item" data-id={id}>
-			<NavLink to={`/foods/${id}`}>
+			<NavLink
+				to={`${process.env.REACT_APP_LINK_START_WITH}/foods/${id}`}
+			>
 				<div className="item d-flex align-items-center justify-content-end justify-content-md-start justify-content-lg-start">
 					<div className="img ms-3 ms-md-0 ms-lg-0 me-lg-3 me-md-3">
-						<lazy.img src={image} alt="img" loadDelay={2000} />
+						<lazy.img src={image} alt="img" loadDelay={0} />
 					</div>
 					<div className="value">{headline}</div>
 				</div>

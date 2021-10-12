@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./About.scss";
+
 // Import Components
 import MainButton from "@global/MainButton/MainButton";
 import Card from "@global/Card/Card";
 import Footer from "@global/Footer/Footer";
+import { lazy } from "@lazy";
 import OurStory from "./Local/OurStory/OurStory";
 import Team from "./Local/Team/Team";
 import Value from "./Local/Value/Value";
-import { lazy } from "@lazy";
 
 // Import Assets
 import bg from "./assets/photo.jpg";
@@ -27,11 +28,11 @@ function About() {
 			<div className="container p-0">
 				<div className="row">
 					<div className="col-12">
+						{/* Heading */}
 						<lazy.div
 							src={bg}
 							className="photo position-relative d-flex align-items-center justify-content-center"
 						>
-							<div className="overlay-blur" />
 							<div className="heading position-relative text-center ">
 								<h2
 									className="t2 text-white"
@@ -57,6 +58,7 @@ function About() {
 				</div>
 			</div>
 			<div className="container">
+				{/* Content */}
 				<div className="content-about">
 					<div className="row">
 						<div
@@ -86,7 +88,9 @@ function About() {
 							<Card
 								data={{
 									size: "l",
-									img: "/assets/rate.svg",
+									img: `${
+										process.env.REACT_APP_LINK_START_WITH
+									}/assets/rate.svg`,
 									headline: "Top Rated",
 									desc:
 										"Lorem ipsum dolor sit amet, consectetur adipiscing elit form du lahoke."
@@ -96,6 +100,7 @@ function About() {
 					</div>
 				</div>
 			</div>
+			{/* Components */}
 			<OurStory />
 			<Team />
 			<Value />

@@ -1,8 +1,11 @@
 import React from "react";
 import "./Section3.scss";
 // Import Components
-import Testimonial from "../../../Global/Testimonial/Testimonial";
-import TestimonialInfo from "../../../Global/TestimonialInfo/TestimonialInfo";
+import Testimonial from "@global/Testimonial/Testimonial";
+import TestimonialInfo from "@global/TestimonialInfo/TestimonialInfo";
+
+// Import Assets
+import img from "./assets/profile_img.jpg";
 
 function Section3() {
 	return (
@@ -12,7 +15,7 @@ function Section3() {
 					<div className="col-12 col-sm-12 col-md-12 col-lg-6">
 						<Testimonial
 							data={{
-								img: "./assets/profile_img.jpg",
+								img,
 								name: "Mason Jonas",
 								job: "Human Resource Development"
 							}}

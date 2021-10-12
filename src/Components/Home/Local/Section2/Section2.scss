@@ -4,7 +4,6 @@
 // Styling Section2
 .Section2 {
 	padding-bottom: 150px;
-	overflow: hidden;
 	// Content Section2
 	.content-section2 {
 		margin-top: 105px;
@@ -17,7 +16,6 @@
 	.photo {
 		max-width: 496px;
 		height: 673px;
-		margin: auto;
 		border-radius: 20px;
 		overflow: hidden;
 		img {
@@ -28,23 +26,12 @@
 
 //=============Responsive
 
-// Tablet
-@media (max-width: 991.98px) {
-	// Styling Section2
-	.Section2 {
-		// Photo
-		.photo {
-			display: none;
-		}
-	}
-}
 // Mobile
 @media (max-width: 767.98px) {
 	// Styling Section2
 	.Section2 {
 		// Photo
 		.photo {
-			display: block;
 			height: 475px;
 			margin-top: 40px;
 		}

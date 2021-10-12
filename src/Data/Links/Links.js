@@ -7,7 +7,7 @@ const LinksData = [
 	{
 		id: 1,
 		value: "Home",
-		href: "/",
+		href: `${process.env.REACT_APP_LINK_START_WITH}`,
 		ionIcon: "home-outline",
 		Icon: null,
 		pc: false
@@ -15,31 +15,23 @@ const LinksData = [
 	{
 		id: 2,
 		value: "About",
-		href: "/about",
+		href: `${process.env.REACT_APP_LINK_START_WITH}/about`,
 		ionIcon: "help-outline",
 		Icon: null
 	},
 	{
 		id: 3,
 		value: "Foods",
-		href: "/foods",
+		href: `${process.env.REACT_APP_LINK_START_WITH}/foods`,
 		ionIcon: "pizza-outline",
 		Icon: null
 	},
 	{
 		id: 4,
 		value: "Pricing",
-		href: "/pricing",
+		href: `${process.env.REACT_APP_LINK_START_WITH}/pricing`,
 		ionIcon: "pricetags-outline",
 		Icon: null
-	},
-	{
-		id: 5,
-		value: "Login",
-		href: "/login",
-		ionIcon: "person-outline",
-		Icon: null,
-		pc: false
 	}
 ];
 export default LinksData;

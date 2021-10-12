@@ -4,40 +4,11 @@
 // Styling Section1
 .Section1 {
 	padding-bottom: 150px;
-	overflow: hidden;
 	// Heading
 	.heading {
 		margin-bottom: 70px;
 		p {
-			width: 50%;
 			margin-top: 25px;
-		}
-	}
-}
-
-//=============Responsive
-
-// Tablet
-@media (max-width: 991.98px) {
-	// Styling Section1
-	.Section1 {
-		// Heading
-		.heading {
-			p {
-				width: 70%;
-			}
-		}
-	}
-}
-// Mobile
-@media (max-width: 767.98px) {
-	// Styling Section1
-	.Section1 {
-		// Heading
-		.heading {
-			p {
-				width: 100%;
-			}
 		}
 	}
 }

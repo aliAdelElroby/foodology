@@ -1,5 +1,5 @@
 import React from "react";
-import "./Home.scss";
+
 // Import Components
 import Header from "./Local/Header/Header";
 import Section1 from "./Local/Section1/Section1";
@@ -9,7 +9,7 @@ import Section4 from "./Local/Section4/Section4";
 import Footer from "../Global/Footer/Footer";
 function Home() {
 	return (
-		<div className="home">
+		<div className="home w-100 overflow-hidden">
 			<Header />
 			<Section1 />
 			<Section2 />

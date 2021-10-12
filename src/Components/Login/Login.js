@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./Login.scss";
+
 // Import Components
 import SocialButton from "@global/SocialButton/SocialButton";
 import googleIcn from "./assets/google.svg";
@@ -7,17 +8,16 @@ import Input from "@global/Input/Input";
 import MainButton from "@global/MainButton/MainButton";
 import { useHistory } from "react-router-dom";
 import { lazy } from "@lazy";
-import { isAuth } from "@helpers";
 import { useGoogleLogin } from "react-google-login";
 // Import Assets
 import bg from "./assets/bg.jpg";
 
 // Context
-import { UserContext } from "@/App";
+import { UserContext } from "@helpers";
 
-function Login({ setAuth }) {
+function Login() {
 	// Import Data From Context
-	const users = useContext(UserContext);
+	const auth = useContext(UserContext);
 
 	// Google Hook
 	const { signIn } = useGoogleLogin({
@@ -34,34 +34,33 @@ function Login({ setAuth }) {
 	useEffect(
 		_ => {
 			//Redirect To Home Page If IsAuth
-			if (isAuth()) {
-				history.push("/");
+			if (auth.check()) {
+				history.push(process.env.REACT_APP_LINK_START_WITH);
 			}
 		},
-		[history]
+		[auth, history]
 	);
+
 	function loginWithGoogle(data) {
-		const usersRoot = users || [];
-		const result = usersRoot.filter(el => {
-			return el.email.toLowerCase() === data.profileObj.email;
-		});
-		if (result.length > 0) {
-			setAuth(result[0]);
-			history.push("/");
-		}
+		auth.login("google", data.profileObj.email);
+		auth.update();
+		setTimeout(_ => {
+			history.push(process.env.REACT_APP_LINK_START_WITH);
+		}, 2000);
 	}
 	function login(e) {
 		setStatus("check");
 		setTimeout(_ => {
-			check(
+			auth.login(
+				"plain",
 				email.current.value,
 				pass.current.value,
-				function(data) {
+				function() {
 					setStatus(true);
-					setAuth(data);
+					auth.update();
 					setTimeout(_ => {
-						history.push("/");
-					}, 5000);
+						history.push(process.env.REACT_APP_LINK_START_WITH);
+					}, 2000);
 				},
 				function() {
 					setStatus("notFound");
@@ -69,22 +68,6 @@ function Login({ setAuth }) {
 			);
 		}, 5000);
 		e.preventDefault();
-	}
-	function check(
-		emailFeild,
-		passFeild,
-		successFunc = null,
-		errorFunc = null
-	) {
-		const usersRoot = users || [];
-		const result = usersRoot.filter(el => {
-			return (
-				el.email.toLowerCase() === emailFeild.toLowerCase() &&
-				el.password.toLowerCase() === passFeild.toLowerCase()
-			);
-		});
-		result.length > 0 ? successFunc(result[0]) : errorFunc(result[0]);
-		return result.length > 0 ? true : false;
 	}
 	return (
 		<div className="login-page">
@@ -158,7 +141,6 @@ function Login({ setAuth }) {
 												val: "Sign In",
 												bootstrap: "w-100 mt-5"
 											}}
-											onClick={login}
 										/>
 										<div
 											className="have-acount t5 mt-4"

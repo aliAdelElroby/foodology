@@ -1,7 +1,7 @@
 // Import Variables
 @import "@SassVars";
 
-// Menu
+// Menu For Extend Only
 %menu {
 	height: 300px;
 	width: 200px;
@@ -38,24 +38,25 @@
 		}
 	}
 }
-// Icon
+// Icon For Extend Only
 %icon {
 	height: 45px;
 	width: 45px;
 	background-color: $primary;
 	border-radius: 15px;
 	position: relative;
+	cursor: pointer;
 }
 
 // Styling Navbar
 .main-navbar {
-	width: 100%;
 	height: $navbar-height;
 	// Menu
 	.menu {
-		height: 100%;
-		margin-right: 13px;
-		display: none;
+		img {
+			height: 20px;
+			margin-top: -5px;
+		}
 	}
 	// Logo
 	.logo {
@@ -63,7 +64,6 @@
 			height: 36px;
 		}
 	}
-
 	// Links
 	.links {
 		ul {
@@ -92,28 +92,12 @@
 	& > a {
 		margin-left: 50px;
 	}
-	// User
-	.user {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-left: 50px;
-		.icon {
-			ion-icon {
-				color: white;
-				font-weight: 900;
-				font-size: 20pt;
-				margin-top: 5px;
-			}
-		}
-	}
 	// Cart
 	.cart {
 		@extend %icon;
 		margin-left: 20px;
 		img {
 			height: 50%;
-			cursor: pointer;
 		}
 		// Menu
 
@@ -134,7 +118,16 @@
 	}
 	// User
 	.user {
+		margin-left: 50px;
 		@extend %icon;
+		.icon {
+			ion-icon {
+				color: white;
+				font-weight: 900;
+				font-size: 20pt;
+				margin-top: 5px;
+			}
+		}
 		// Menu User
 		.menu-user {
 			@extend %menu;
@@ -160,27 +153,11 @@
 @media (max-width: 991.98px) {
 	.main-navbar {
 		height: 100px;
-
-		// Menu
-		.menu {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin-right: 30px;
-			img {
-				height: 20px;
-				margin-top: -5px;
-			}
-		}
 		// Logo
 		.logo {
 			img {
 				height: 30px;
 			}
-		}
-		// Links
-		.links {
-			display: none;
 		}
 		// Cart
 		.cart,
@@ -201,25 +178,17 @@
 @media (max-width: 767.98px) {
 	.main-navbar {
 		height: 67px;
-
 		// Menu
 		.menu {
-			margin-right: 13px;
 			img {
 				height: 13px;
-				margin-top: -5px;
 			}
 		}
-
 		// Logo
 		.logo {
 			img {
 				height: 25px;
 			}
-		}
-		// Links
-		.links {
-			display: none;
 		}
 		// Cart
 		.cart,

@@ -10,18 +10,21 @@ import { useHistory, useParams } from "react-router";
 
 // Import Data
 import CategoriesData from "@data/Foods/CategoriesData";
-import { FoodsContext } from "@/App";
+import { FoodsContext } from "@helpers";
+
 function FeaturedFoods() {
 	// Constants
-	const FoodsData = useContext(FoodsContext);
+	const foods = useContext(FoodsContext);
+
 	// States
 	const [Categories] = useState(CategoriesData ? CategoriesData : []);
-	const [Foods] = useState(FoodsData ? FoodsData : []);
+	const [Foods] = useState(foods ? foods.get() : []);
 	const [itemsApper, setItemsApper] = useState([]);
 	const [dataShow, setDataShow] = useState(null);
 	const [autoSelect, setAutoSelect] = useState(null);
 	let { id } = useParams();
 	let history = useHistory();
+
 	useEffect(
 		_ => {
 			const setData = id => {
@@ -39,7 +42,9 @@ function FeaturedFoods() {
 					setAutoSelect(filter);
 					setData(id);
 				} else {
-					history.push("/404");
+					history.push(
+						`${process.env.REACT_APP_LINK_START_WITH}/404`
+					);
 				}
 			}
 		},
@@ -69,6 +74,7 @@ function FeaturedFoods() {
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
+						{/* Heading */}
 						<div className="heading text-center">
 							<h2 className="t2" data-aos="fade-up">
 								Today’s featured
@@ -86,6 +92,7 @@ function FeaturedFoods() {
 						</div>
 					</div>
 				</div>
+				{/* Content */}
 				<div className="content">
 					<div className="row">
 						<div className="col-12 col-sm-12 col-md-12 col-lg-5 p-0">
@@ -93,6 +100,7 @@ function FeaturedFoods() {
 								<div className="row w-100 m-auto">
 									<div className="col-6">
 										<div className="main-categories h-100 align-self-end pt-3">
+											{/* Main Categories */}
 											<div className="list">
 												<ul>
 													<li>
@@ -119,6 +127,7 @@ function FeaturedFoods() {
 										</div>
 									</div>
 									<div className="col-6 d-flex justify-content-end">
+										{/* Categories */}
 										<div className="categories">
 											<div className="label t5 d-flex align-items-center">
 												<ion-icon name="menu-outline" />
@@ -171,7 +180,7 @@ function FeaturedFoods() {
 								</div>
 								<div className="col-12 col-sm-12 col-md-6 col-lg-7">
 									{dataShow ? (
-										<FoodData data={dataShow} run={true} />
+										<FoodData data={dataShow} />
 									) : (
 										""
 									)}

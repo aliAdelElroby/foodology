@@ -6,6 +6,10 @@ import MenuList from "@global/MenuList/MenuList";
 
 // Import Data
 import list from "@data/MenuFood/list";
+
+// Import Assets
+import img from "./assets/Menus.jpg";
+
 function Menus() {
 	return (
 		<section className="menus">
@@ -31,7 +35,7 @@ function Menus() {
 					<div className="row">
 						<div className="col-12 col-sm-12 col-md-12 col-lg-6">
 							<lazy.div
-								src="/assets/foods/Menus.jpg"
+								src={img}
 								loading={true}
 								className="image"
 							/>

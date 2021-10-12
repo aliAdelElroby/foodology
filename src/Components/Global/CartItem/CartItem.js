@@ -6,18 +6,17 @@ import { deleteWithIdFromLocal } from "@helpers";
 import { lazy } from "@lazy";
 
 // Import Data
-import { CartContext } from "@/App";
+import { CartContext } from "@helpers";
 
 function CartItem({
 	data: {
 		id,
 		headline,
 		images: { sub1 }
-	},
-	updateCartData
+	}
 }) {
 	// Context
-	const CartItems = useContext(CartContext);
+	const cartItems = useContext(CartContext);
 
 	// States
 	const [item] = useState(React.createRef());
@@ -44,7 +43,7 @@ function CartItem({
 				if (parseInt(cartItem.style.top) > window.screen.height - 200) {
 					setDeleted(true);
 					deleteWithIdFromLocal(id, "foods");
-					CartItems.update("foods");
+					cartItems.update();
 				}
 				cartItem.style.position = "static";
 				document

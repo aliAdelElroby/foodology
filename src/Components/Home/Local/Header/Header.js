@@ -2,15 +2,16 @@ import React from "react";
 import "./Header.scss";
 
 // Import Components
-import MainButton from "../../../Global/MainButton/MainButton";
-import { lazy } from "../../../../Custom/Lazy";
+import MainButton from "@global/MainButton/MainButton";
+import { lazy } from "@lazy";
 
 // Import Assets
 import imgHeader from "./assets/imgHeader.png";
 
 function Header() {
 	return (
-		<div className="main-header">
+		<div className="main-header overflow-hidden">
+			{/* Header Content */}
 			<div className="content-header">
 				<div className="container">
 					<div className="row">
@@ -37,6 +38,7 @@ function Header() {
 								/>
 							</div>
 						</div>
+						{/* Header Photo */}
 						<div className="col-12 col-sm-12 col-md-12 col-lg-6 position-relative">
 							<div className="bg-photo" />
 							<div className="photo">

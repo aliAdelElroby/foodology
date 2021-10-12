@@ -34,10 +34,7 @@ function Menu({ data: { transition, width, list, active } }) {
 				) => {
 					return (
 						<li key={index}>
-							<NavLink
-								to={href}
-								exact={href === "/" ? true : false}
-							>
+							<NavLink to={href} exact={true}>
 								<span />
 								<span />
 								{ionIcon ? <ion-icon name={ionIcon} /> : false}

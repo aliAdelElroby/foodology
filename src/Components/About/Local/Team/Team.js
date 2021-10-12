@@ -1,10 +1,12 @@
 import React from "react";
 import "./Team.scss";
+
 // Import Components
 import { lazy } from "@lazy";
 
 // Import Assets
 import img from "./assets/Picture.jpg";
+
 function Team() {
 	return (
 		<section className="Team">
@@ -14,11 +16,13 @@ function Team() {
 						className="col-12 col-sm-12 col-md-12 col-lg-6 order-2 order-lg-1"
 						data-aos="zoom-in"
 					>
+						{/* Photo */}
 						<div className="photo-team">
 							<lazy.img src={img} alt="Team" />
 						</div>
 					</div>
 					<div className="col-12 col-sm-12 col-md-12 col-lg-6 order-1 order-lg-2">
+						{/* Heading */}
 						<div className="heading text-end">
 							<div className="title-top" data-aos="fade-left">
 								team

@@ -22,7 +22,7 @@ function Input({
 			switch (action) {
 				case "focus":
 					result = {
-						typeState: state.typeState,
+						...state,
 						passToggle: state.passToggle === 2 ? 2 : 1,
 						statusIcon: status === false ? true : false
 					};
@@ -39,8 +39,7 @@ function Input({
 					return result;
 				case "check":
 					result = {
-						typeState: "password",
-						passToggle: 0,
+						...state,
 						statusIcon: true
 					};
 					return result;
