@@ -26,16 +26,16 @@ function OurStory() {
 					images={[
 						`${
 							process.env.REACT_APP_LINK_START_WITH
-						}/assets/about/Pic1.jpg`,
+						}/assets/about/Pic1.jpeg`,
 						`${
 							process.env.REACT_APP_LINK_START_WITH
-						}/assets/about/Pic2.jpg`,
+						}/assets/about/Pic2.jpeg`,
 						`${
 							process.env.REACT_APP_LINK_START_WITH
-						}/assets/about/Pic3.jpg`,
+						}/assets/about/Pic3.jpeg`,
 						`${
 							process.env.REACT_APP_LINK_START_WITH
-						}/assets/about/Pic4.jpg`
+						}/assets/about/Pic4.jpeg`
 					]}
 				/>
 			</div>

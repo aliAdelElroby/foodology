@@ -29,7 +29,7 @@ function App() {
 	const [settings, setSettings] = useState({
 		active: false,
 		widthMenu: 0,
-		transition: "all 200ms"
+		transition: "all 300ms"
 	});
 
 	// Functions

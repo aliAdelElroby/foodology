@@ -48,28 +48,23 @@ export function deleteWithIdFromLocal(id, name) {
 export function setUserInLocal(data) {
 	localStorage.setItem("user", data.id);
 }
-
-export function isAuth() {
-	if (localStorage.getItem("user")) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-export function auth() {
-	if (localStorage.getItem("user")) {
-		const id = localStorage.getItem("user");
-		return getWithId(id, users);
-	} else {
-		return false;
-	}
-}
-
-export function logout() {
-	if (localStorage.getItem("user")) {
-		localStorage.removeItem("user");
-	}
+export function serialize(form) {
+	let allElements = Array.from(form.elements);
+	let get = allElements.map(el => {
+		return `${el.name}=${el.value}`;
+	});
+	let items = get;
+	let result = {
+		get: () => {
+			return get.join("&");
+		}
+	};
+	items.forEach(el => {
+		const key = el.split("=")[0];
+		const value = el.split("=")[1];
+		result[key] = value;
+	});
+	return result;
 }
 
 // Contexts
@@ -96,49 +91,40 @@ function Helpers({ children }) {
 				return "You Are Not Login";
 			}
 		},
-		login: (
-			type,
-			email,
-			pass = null,
-			successFunc = null,
-			errorFunc = null
-		) => {
-			let result;
-			switch (type) {
-				case "plain":
-					result = users.filter(el => {
-						return el.email === email && el.password === pass;
-					});
-					if (result.length) {
-						localStorage.setItem("user", result[0].id);
-						if (successFunc) {
-							successFunc();
-						}
-					} else {
-						if (errorFunc) {
-							errorFunc();
-						}
-					}
-					break;
-				case "google":
-					result = users.filter(el => {
-						return el.email === email;
-					});
-					if (result.length) {
-						localStorage.setItem("user", result[0].id);
-						if (successFunc) {
-							successFunc();
-						}
-					} else {
-						if (errorFunc) {
-							errorFunc();
-						}
-					}
-					break;
-				default:
-					return false;
+		login: (serialize, successFunc = null, errorFunc = null) => {
+			const result = users.filter(el => {
+				return (
+					el.email === serialize.email &&
+					el.password === serialize.password
+				);
+			});
+			if (result.length) {
+				localStorage.setItem("user", result[0].id);
+				if (successFunc) {
+					successFunc();
+				}
+			} else {
+				if (errorFunc) {
+					errorFunc();
+				}
 			}
 		},
+		loginWithGoogle: (response, successFunc = null, errorFunc = null) => {
+			const result = users.filter(el => {
+				return el.email === response.profileObj.email;
+			});
+			if (result.length) {
+				localStorage.setItem("user", result[0].id);
+				if (successFunc) {
+					successFunc();
+				}
+			} else {
+				if (errorFunc) {
+					errorFunc();
+				}
+			}
+		},
+		signup: (serialize, successFunc, errorFunc) => {},
 		logout: () => {
 			if (localStorage.getItem("user")) {
 				localStorage.removeItem("user");

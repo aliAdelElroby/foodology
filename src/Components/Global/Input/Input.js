@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useState } from "react";
 import "./Input.scss";
 function Input({
-	data: { type, label, placeholder, status = "", ref },
+	data: { name, type, label, placeholder, status = "", ref },
 	...params
 }) {
 	// States
@@ -38,11 +38,7 @@ function Input({
 					};
 					return result;
 				case "check":
-					result = {
-						...state,
-						statusIcon: true
-					};
-					return result;
+					return initalSettings;
 				default:
 					return initalSettings;
 			}
@@ -79,24 +75,27 @@ function Input({
 					className="p-3"
 					type={settings.typeState}
 					id={id}
+					name={name || id}
 					disabled={
 						status === "check" || status === true ? true : false
 					}
 					placeholder={placeholder}
 					ref={ref}
-					onFocus={e => setSettings("focus")}
+					onFocus={_ => setSettings("focus")}
 				/>
 				{type === "password" && settings.passToggle > 0 ? (
-					<div className="eye">
+					<div
+						className="eye"
+						onClick={_ => {
+							setSettings("eye");
+						}}
+					>
 						<ion-icon
 							name={
 								settings.passToggle === 2
 									? "eye-off-outline"
 									: "eye-outline"
 							}
-							onClick={_ => {
-								setSettings("eye");
-							}}
 						/>
 					</div>
 				) : (

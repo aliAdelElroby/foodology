@@ -8,7 +8,8 @@ import { lazy } from "@lazy";
 import data from "@data/Home/Section2/data";
 
 // Import Assets
-import photo from "./assets/photo.jpg";
+import photo from "./assets/photo.jpeg";
+
 function Section2() {
 	// Maps
 	const list = data.map(el => {

@@ -17,7 +17,7 @@ const FoodsData = [
 			}/assets/foods/meat1-main.png`,
 			sub1: `${
 				process.env.REACT_APP_LINK_START_WITH
-			}/assets/foods/meat1.jpg`
+			}/assets/foods/meat1.jpeg`
 		},
 		price: 15,
 		quantity: 10,
@@ -33,10 +33,10 @@ const FoodsData = [
 		images: {
 			main: `${
 				process.env.REACT_APP_LINK_START_WITH
-			}/assets/foods/meat2.jpg`,
+			}/assets/foods/meat2.jpeg`,
 			sub1: `${
 				process.env.REACT_APP_LINK_START_WITH
-			}/assets/foods/meat2.jpg`
+			}/assets/foods/meat2.jpeg`
 		},
 		price: 18,
 		quantity: 30,
@@ -50,7 +50,7 @@ const FoodsData = [
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et .",
 		calories: "",
 		images: [
-			`${process.env.REACT_APP_LINK_START_WITH}/assets/foods/meat2.jpg`
+			`${process.env.REACT_APP_LINK_START_WITH}/assets/foods/meat2.jpeg`
 		],
 		price: 20,
 		quantity: 2,

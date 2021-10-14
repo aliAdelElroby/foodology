@@ -13,7 +13,7 @@ import { useGoogleLogin } from "react-google-login";
 import bg from "./assets/bg.jpg";
 
 // Context
-import { UserContext } from "@helpers";
+import { UserContext, serialize } from "@helpers";
 
 function Login() {
 	// Import Data From Context
@@ -27,8 +27,8 @@ function Login() {
 
 	// States
 	const [status, setStatus] = useState(false);
-	const [email] = useState(React.createRef());
-	const [pass] = useState(React.createRef());
+	const [form] = useState(React.createRef());
+
 	const history = useHistory();
 	// Functions
 	useEffect(
@@ -42,19 +42,24 @@ function Login() {
 	);
 
 	function loginWithGoogle(data) {
-		auth.login("google", data.profileObj.email);
-		auth.update();
-		setTimeout(_ => {
-			history.push(process.env.REACT_APP_LINK_START_WITH);
-		}, 2000);
+		auth.loginWithGoogle(
+			data,
+			function() {
+				auth.update();
+				setTimeout(_ => {
+					history.push(process.env.REACT_APP_LINK_START_WITH);
+				}, 2000);
+			},
+			function() {
+				alert("Not Found");
+			}
+		);
 	}
 	function login(e) {
 		setStatus("check");
 		setTimeout(_ => {
 			auth.login(
-				"plain",
-				email.current.value,
-				pass.current.value,
+				serialize(form.current),
 				function() {
 					setStatus(true);
 					auth.update();
@@ -100,13 +105,17 @@ function Login() {
 									Or, sign in with your email
 								</div>
 								<div className="form">
-									<form action="/" onSubmit={login}>
+									<form
+										action="/"
+										onSubmit={login}
+										ref={form}
+									>
 										<Input
 											data={{
 												type: "email",
+												name: "email",
 												label: "Email address",
 												placeholder: "Enter Your Email",
-												ref: email,
 												status
 											}}
 											data-aos="fade-right"
@@ -117,9 +126,9 @@ function Login() {
 										<Input
 											data={{
 												type: "password",
+												name: "password",
 												label: "Password",
 												placeholder: "Enter password",
-												ref: pass,
 												status
 											}}
 											data-aos="fade-right"

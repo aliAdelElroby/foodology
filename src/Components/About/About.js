@@ -11,7 +11,8 @@ import Team from "./Local/Team/Team";
 import Value from "./Local/Value/Value";
 
 // Import Assets
-import bg from "./assets/photo.jpg";
+import bg from "./assets/photo.jpeg";
+
 function About() {
 	// States
 	const [mobile, setMobile] = useState(false);
