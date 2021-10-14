@@ -7,6 +7,9 @@
 	min-height: 100vh;
 	overflow: hidden;
 	will-change: margin-left;
+	.row {
+		transition: all 1s;
+	}
 	// Photo
 	.photo {
 		width: 100%;

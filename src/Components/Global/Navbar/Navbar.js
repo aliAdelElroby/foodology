@@ -21,6 +21,7 @@ function Navbar({ menu, list }) {
 	// States
 	const [toggleCart, setToggleCart] = useState(false);
 	const [toggleUser, setToggleUser] = useState(false);
+	const [cartItemsShow, setCartItemsShow] = useState([]);
 
 	// Constants
 	const visibleName = auth.check()
@@ -36,6 +37,7 @@ function Navbar({ menu, list }) {
 		setToggleCart(prev => !prev);
 		setToggleUser(false);
 		cartItems.update();
+		setCartItemsShow(cartItemsMap);
 	}
 
 	function User() {
@@ -58,7 +60,7 @@ function Navbar({ menu, list }) {
 		  })
 		: null;
 
-	const cartList = cartItems.get().map(el => {
+	const cartItemsMap = cartItems.get().map(el => {
 		return <CartItem key={el.id} data={el} />;
 	});
 	return (
@@ -125,8 +127,8 @@ function Navbar({ menu, list }) {
 					} d-flex flex-column`}
 				>
 					<div className="list flex-grow-1 h-100">
-						{cartList.length ? (
-							cartList
+						{cartItemsShow.length ? (
+							cartItemsShow
 						) : (
 							<div className="t5 text-center h-100 d-flex align-items-center">
 								There is no food in the cart !

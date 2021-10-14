@@ -78,9 +78,12 @@ function Login() {
 		<div className="login-page">
 			<div className="container-fluid m-0 p-0">
 				<div className="row">
+					{/* Photo */}
 					<div className="col-12 col-sm-12 col-md-12 col-lg-7 d-none d-md-none d-lg-block">
 						<lazy.div src={bg} loading={true} className="photo" />
 					</div>
+
+					{/* Content */}
 					<div className="col-12 col-sm-12 col-md-7 col-lg-5 m-auto">
 						<div className="content m-auto">
 							<div className="text-center">
