@@ -18,6 +18,10 @@
 	transition: all 300ms;
 	user-select: none;
 	position: relative;
+	.icon {
+		height: 25px;
+		cursor: pointer;
+	}
 	&.isFocus {
 		border: 2px solid transparent;
 		box-shadow: 0 0 5px -1px $primary;
@@ -37,17 +41,20 @@
 		height: 350px;
 		background-color: white;
 		position: absolute;
-		top: -20px;
-		right: 0;
-		transform: translate(50%, 0);
+		top: calc(100% + 20px);
+		left: 0;
 		box-shadow: 0 0 7px -4px $title-text;
 		border-radius: 20px;
 		padding: 20px;
 		z-index: 2000;
+		&.hide {
+			display: none !important;
+		}
 		.t5 {
 			font-size: 14pt;
 		}
-		%amPm {
+		.am,
+		.pm {
 			border-radius: 10px;
 			padding: 7px 11px;
 			font-size: 10pt;
@@ -61,44 +68,6 @@
 				color: white;
 			}
 		}
-		.am,
-		.pm {
-			@extend %amPm;
-		}
-		%picker {
-			height: 36.5%;
-			width: 4px;
-			background-color: $primary;
-			position: absolute;
-			left: 50%;
-			bottom: 50%;
-			transform-origin: bottom center;
-			transform: translate(-50%, 0);
-			transition: transform 300ms;
-			&::before {
-				content: "";
-				width: 10px;
-				height: 10px;
-				background-color: $primary;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				border-radius: 50%;
-				transform: translate(calc(-50% + 2px), 50%);
-			}
-			&::after {
-				content: "";
-				width: 25px;
-				height: 25px;
-				border: 4px solid $primary;
-				background-color: $primary;
-				position: absolute;
-				top: 2px;
-				left: 0;
-				border-radius: 50%;
-				transform: translate(calc(-50% + 2px), -100%);
-			}
-		}
 		// Hours
 		.hours {
 			height: 200px;
@@ -109,7 +78,38 @@
 			padding: 10px;
 			// Picker
 			.picker-hours {
-				@extend %picker;
+				height: 36.5%;
+				width: 4px;
+				background-color: $primary;
+				position: absolute;
+				left: 50%;
+				bottom: 50%;
+				transform-origin: bottom center;
+				transform: translate(-50%, 0);
+				transition: transform 300ms;
+				&::before {
+					content: "";
+					width: 10px;
+					height: 10px;
+					background-color: $primary;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					border-radius: 50%;
+					transform: translate(calc(-50% + 2px), 50%);
+				}
+				&::after {
+					content: "";
+					width: 25px;
+					height: 25px;
+					border: 4px solid $primary;
+					background-color: $primary;
+					position: absolute;
+					top: 2px;
+					left: 0;
+					border-radius: 50%;
+					transform: translate(calc(-50% + 2px), -100%);
+				}
 			}
 			// Values Of Hours
 			.values {
@@ -147,6 +147,71 @@
 					}
 				}
 			}
+		}
+		// Back And Next For Select Hours Or Minutes
+		.next,
+		.back {
+			width: 20px;
+			cursor: pointer;
+			&.disable {
+				ion-icon {
+					transition: color 200ms;
+					color: $disabled !important;
+				}
+			}
+		}
+	}
+}
+//=============Responsive
+// Mobile
+@media (max-width: 767.98px) {
+	// Styling SelectBox
+	.input-time {
+		min-height: 40px;
+		width: 100%;
+		max-width: 150px;
+		font-size: 11pt;
+		padding: 8px 11px 8px 16px;
+		// Picker
+		.picker {
+			width: 250px;
+			height: 300px;
+			// Hours
+			.hours {
+				height: 150px;
+				width: 150px;
+				// Picker
+				.picker-hours {
+					width: 2px;
+					&::before {
+						height: 7px;
+						width: 7px;
+						transform: translate(calc(-50% + 1px), 50%);
+					}
+					&::after {
+						height: 18px;
+						width: 18px;
+						transform: translate(calc(-50% + 1px), -100%);
+					}
+				}
+				// Values Of Hours
+				.values {
+					height: 90%;
+					span {
+						font-size: 7pt;
+					}
+				}
+			}
+		}
+		.icon {
+			height: 14pt;
+			ion-icon {
+				font-size: 14pt;
+			}
+		}
+		.am,
+		.pm {
+			font-size: 7pt !important;
 		}
 	}
 }
