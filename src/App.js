@@ -12,7 +12,9 @@ import About from "@about/About";
 import Foods from "@foods/Foods";
 import Cart from "@cart/Cart";
 import OverlayDelete from "@global/OverlayDelete/OverlayDelete";
-import Helpers from "@helpers";
+import rootReducer from "./Redux/reducers";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
 
 // Import Data
 import LinksData from "@data/Links/Links";
@@ -25,6 +27,12 @@ AOS.init({
 });
 
 function App() {
+	// Redux Store
+	const store = configureStore({
+		reducer: rootReducer,
+		devTools: false
+	});
+
 	// States
 	const [settings, setSettings] = useState({
 		active: false,
@@ -55,10 +63,10 @@ function App() {
 		}
 	}
 	return (
-		<BrowserRouter>
-			<div className="App">
-				<OverlayDelete />
-				<Helpers>
+		<Provider store={store}>
+			<BrowserRouter>
+				<div className="App">
+					<OverlayDelete />
 					<Menu
 						data={{
 							list: LinksData,
@@ -116,9 +124,9 @@ function App() {
 							component={Cart}
 						/>
 					</div>
-				</Helpers>
-			</div>
-		</BrowserRouter>
+				</div>
+			</BrowserRouter>
+		</Provider>
 	);
 }
 

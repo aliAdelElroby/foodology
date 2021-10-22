@@ -15,7 +15,8 @@ module.exports = {
 			"@SassVars": path.resolve(__dirname, "src/Sass/_Vars.scss"),
 			"@helpers": path.resolve(__dirname, "src/Custom/Helpers.js"),
 			"@lazy": path.resolve(__dirname, "src/Custom/Lazy.js"),
-			"@data": path.resolve(__dirname, "src/Data/")
+			"@data": path.resolve(__dirname, "src/Data/"),
+			"@redux": path.resolve(__dirname, "src/Redux/")
 		}
 	},
 	plugins: [

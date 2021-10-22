@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.scss";
 
 // Import Components
@@ -8,17 +8,21 @@ import Input from "@global/Input/Input";
 import MainButton from "@global/MainButton/MainButton";
 import { useHistory } from "react-router-dom";
 import { lazy } from "@lazy";
+import { useDispatch, useSelector } from "react-redux";
 import { useGoogleLogin } from "react-google-login";
+import { serialize } from "@helpers";
+import {
+	loginWithGoogle as loginWithGoogleRedux,
+	login as loginRedux
+} from "@redux/actions/userSlice";
+
 // Import Assets
 import bg from "./assets/bg.jpg";
 
-// Context
-import { UserContext, serialize } from "@helpers";
-
 function Login() {
-	// Import Data From Context
-	const auth = useContext(UserContext);
-
+	// Redux
+	const dispatch = useDispatch();
+	const auth = useSelector(s => s.auth);
 	// Google Hook
 	const { signIn } = useGoogleLogin({
 		clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
@@ -34,7 +38,7 @@ function Login() {
 	useEffect(
 		_ => {
 			//Redirect To Home Page If IsAuth
-			if (auth.check()) {
+			if (auth.check) {
 				history.push(process.env.REACT_APP_LINK_START_WITH);
 			}
 		},
@@ -42,36 +46,40 @@ function Login() {
 	);
 
 	function loginWithGoogle(data) {
-		auth.loginWithGoogle(
-			data,
-			function() {
-				auth.update();
-				setTimeout(_ => {
-					history.push(process.env.REACT_APP_LINK_START_WITH);
-				}, 2000);
-			},
-			function() {
-				alert("Not Found");
-			}
+		dispatch(
+			loginWithGoogleRedux(
+				data,
+				function() {
+					auth.update();
+					setTimeout(_ => {
+						history.push(process.env.REACT_APP_LINK_START_WITH);
+					}, 1000);
+				},
+				function() {
+					alert("Not Found");
+				}
+			)
 		);
 	}
 	function login(e) {
 		setStatus("check");
 		setTimeout(_ => {
-			auth.login(
-				serialize(form.current),
-				function() {
-					setStatus(true);
-					auth.update();
-					setTimeout(_ => {
-						history.push(process.env.REACT_APP_LINK_START_WITH);
-					}, 2000);
-				},
-				function() {
-					setStatus("notFound");
-				}
+			dispatch(
+				loginRedux(
+					serialize(form.current),
+					function() {
+						setStatus(true);
+						auth.update();
+						setTimeout(_ => {
+							history.push(process.env.REACT_APP_LINK_START_WITH);
+						}, 2000);
+					},
+					function() {
+						setStatus("notFound");
+					}
+				)
 			);
-		}, 5000);
+		}, 2000);
 		e.preventDefault();
 	}
 	return (

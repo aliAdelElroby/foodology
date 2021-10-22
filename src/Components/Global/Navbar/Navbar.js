@@ -1,33 +1,30 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./Navbar.scss";
 // Import Components
 import StrokeButton from "../StrokeButton/StrokeButton";
 import CartItem from "@global/CartItem/CartItem";
 import { Link } from "react-router-dom";
-
+import { logout } from "@redux/actions/userSlice";
+import { useSelector, useDispatch } from "react-redux";
 // Import Assets
 import logo from "./assets/logo.svg";
 import cartIcn from "./assets/cart.svg";
 import menuIcn from "./assets/menu.svg";
 
-// Import Data
-import { CartContext, UserContext } from "@helpers";
-
 function Navbar({ menu, list }) {
-	// Context
-	const auth = useContext(UserContext);
-	const cartItems = useContext(CartContext);
+	// Redux
+	const dispatch = useDispatch();
+	const cartItems = useSelector(s => s.cartItems.all);
+	const auth = useSelector(s => s.auth);
 
 	// States
 	const [toggleCart, setToggleCart] = useState(false);
 	const [toggleUser, setToggleUser] = useState(false);
-	const [cartItemsShow, setCartItemsShow] = useState([]);
 
 	// Constants
-	const visibleName = auth.check()
-		? auth
-				.get()
-				.displayName.split(" ")
+	const visibleName = auth.check
+		? auth.data.displayName
+				.split(" ")
 				.slice(0, 2)
 				.join(" ")
 		: "";
@@ -36,8 +33,6 @@ function Navbar({ menu, list }) {
 	function Cart() {
 		setToggleCart(prev => !prev);
 		setToggleUser(false);
-		cartItems.update();
-		setCartItemsShow(cartItemsMap);
 	}
 
 	function User() {
@@ -60,7 +55,7 @@ function Navbar({ menu, list }) {
 		  })
 		: null;
 
-	const cartItemsMap = cartItems.get().map(el => {
+	const cartItemsMap = cartItems.map(el => {
 		return <CartItem key={el.id} data={el} />;
 	});
 	return (
@@ -84,7 +79,7 @@ function Navbar({ menu, list }) {
 			</div>
 
 			{/* Check If Auth Visible User Icon And Hide Login Button  */}
-			{auth.check() ? (
+			{auth.check ? (
 				<div className="user d-flex align-items-center justify-content-center">
 					<div className="icon" onClick={User}>
 						<ion-icon name="person" />
@@ -103,7 +98,7 @@ function Navbar({ menu, list }) {
 						<div className="logout d-flex align-items-end justify-content-center">
 							<Link
 								to={`${process.env.REACT_APP_LINK_START_WITH}`}
-								onClick={_ => auth.logout()}
+								onClick={_ => dispatch(logout())}
 							>
 								Logout
 							</Link>
@@ -127,8 +122,8 @@ function Navbar({ menu, list }) {
 					} d-flex flex-column`}
 				>
 					<div className="list flex-grow-1 h-100">
-						{cartItemsShow.length ? (
-							cartItemsShow
+						{cartItemsMap.length ? (
+							cartItemsMap
 						) : (
 							<div className="t5 text-center h-100 d-flex align-items-center">
 								There is no food in the cart !

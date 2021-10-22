@@ -1,17 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./ItemsPayment.scss";
 // Import Components
 import { lazy } from "@lazy";
-// Import Data
-import { CartContext } from "@helpers";
+import { useSelector } from "react-redux";
+
 function ItemsPayment() {
-	// Constants
-	const cartItems = useContext(CartContext);
+	// Redux
+	const cartItems = useSelector(s => s.cartItems.all);
 
 	// Maps
-	const CartItemsApper = cartItems
-		.get()
-		.map(({ id, images: { sub1 }, headline, price = "$10" }, index) => {
+	const CartItemsApper = cartItems.map(
+		({ id, images: { sub1 }, headline, price = "$10" }, index) => {
 			return (
 				<div
 					className="col-4"
@@ -29,14 +28,15 @@ function ItemsPayment() {
 					</div>
 				</div>
 			);
-		});
+		}
+	);
 	return (
 		<section className="items-payment">
 			<div className="row">
 				<div className="heading text-center">
 					<h2 className="t2">Items & Payment</h2>
 					<div className="title-top mt-4">
-						{cartItems.get().length || "no"} items
+						{cartItems.length || "no"} items
 					</div>
 				</div>
 			</div>

@@ -1,24 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
 import "./FeaturedFoods.scss";
 // Import Components
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router";
 import CategoriesList from "@global/CategoriesList/CategoriesList";
 import SelectBox from "@global/SelectBox/SelectBox";
 import Counter from "@global/Counter/Counter";
 import FoodData from "@global/FoodData/FoodData";
 import FoodImages from "@global/FoodImages/FoodImages";
-import { useHistory, useParams } from "react-router";
 
 // Import Data
 import CategoriesData from "@data/Foods/CategoriesData";
-import { FoodsContext } from "@helpers";
+import FoodsData from "@data/Foods/FoodsData";
 
 function FeaturedFoods() {
-	// Constants
-	const foods = useContext(FoodsContext);
-
 	// States
 	const [Categories] = useState(CategoriesData ? CategoriesData : []);
-	const [Foods] = useState(foods ? foods.get() : []);
+	const [Foods] = useState(FoodsData || []);
 	const [itemsApper, setItemsApper] = useState([]);
 	const [dataShow, setDataShow] = useState(null);
 	const [autoSelect, setAutoSelect] = useState(null);

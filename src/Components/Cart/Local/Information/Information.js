@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./Information.scss";
 
 // Import Components
@@ -7,24 +7,24 @@ import InputTime from "@global/InputTime/InputTime";
 import EditableDiv from "../../Global/EditableDiv/EditableDiv";
 
 // Import Data
-import { CartContext, UserContext } from "@helpers";
+import { useSelector } from "react-redux";
 
 function Information() {
-	// Constants
-	const cartItems = useContext(CartContext);
-	const auth = useContext(UserContext);
+	// Redux
+	const cartItems = useSelector(s => s.cartItems.all);
+	const auth = useSelector(s => s.auth);
 
 	const data = {
 		shipping: {
-			name: auth.get().displayName || "Not Set Yet!",
-			address: auth.get().address || "Not Set Yet!",
-			phone: auth.get().phone || "Not Set Yet!",
+			name: auth.data.displayName || "Not Set Yet!",
+			address: auth.data.address || "Not Set Yet!",
+			phone: auth.data.phone || "Not Set Yet!",
 			editable: false
 		},
 		payment: {
-			placeholderName: auth.get().cardPlaceholderName || "Not Set Yet!",
-			cardNumber: auth.get().cardNumber || "Not Set Yet!",
-			cardDate: auth.get().cardDate || "----",
+			placeholderName: auth.data.cardPlaceholderName || "Not Set Yet!",
+			cardNumber: auth.data.cardNumber || "Not Set Yet!",
+			cardDate: auth.data.cardDate || "----",
 			editable: false
 		}
 	};
@@ -35,9 +35,8 @@ function Information() {
 
 	// Functions
 	function getPrice() {
-		if (cartItems.get() && cartItems.get().length) {
+		if (cartItems && cartItems.length) {
 			var result = cartItems
-				.get()
 				.map(el => (el.price ? parseFloat(el.price) : 0))
 				.reduce((p, c) => p + c);
 		}

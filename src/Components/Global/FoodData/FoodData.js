@@ -1,21 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./FoodData.scss";
 
 // Import Components
 import { motion } from "framer-motion";
 import MainButton from "../MainButton/MainButton";
 import StrokeButton from "../StrokeButton/StrokeButton";
-
-// Import Data
-import { CartContext } from "@helpers";
+import { add } from "@redux/actions/CartSlice";
+import { useDispatch } from "react-redux";
 
 function FoodData({ data, delay }) {
+	// Redux
+	const dispatch = useDispatch();
+
 	// States
 	const [animation, setAnimation] = useState(null);
 	const [dataApper, setDataApper] = useState(animation ? null : data);
-
-	// Constants
-	const cartItems = useContext(CartContext);
 
 	// Functions
 	useEffect(
@@ -69,7 +68,7 @@ function FoodData({ data, delay }) {
 				<StrokeButton val="See More" />
 				<MainButton
 					data={{ size: "m", val: "ADD", bootstrap: "ms-4" }}
-					onClick={_ => cartItems.add(data.id)}
+					onClick={_ => dispatch(add(data.id))}
 				/>
 			</div>
 		</div>

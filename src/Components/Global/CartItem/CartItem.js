@@ -1,12 +1,10 @@
-import React, { useContext, useReducer, useState } from "react";
 import "./CartItem.scss";
 
 // Import Components
-import { deleteWithIdFromLocal } from "@helpers";
 import { lazy } from "@lazy";
-
-// Import Data
-import { CartContext } from "@helpers";
+import React, { useReducer, useState } from "react";
+import { useDispatch } from "react-redux";
+import { remove } from "@redux/actions/CartSlice";
 
 function CartItem({
 	data: {
@@ -15,8 +13,8 @@ function CartItem({
 		images: { sub1 }
 	}
 }) {
-	// Context
-	const cartItems = useContext(CartContext);
+	// Redux
+	const dispatch = useDispatch();
 
 	// States
 	const [item] = useState(React.createRef());
@@ -42,8 +40,7 @@ function CartItem({
 			case "end":
 				if (parseInt(cartItem.style.top) > window.screen.height - 200) {
 					setDeleted(true);
-					deleteWithIdFromLocal(id, "foods");
-					cartItems.update();
+					dispatch(remove(id));
 				}
 				cartItem.style.position = "static";
 				document
