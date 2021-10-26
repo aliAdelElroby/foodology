@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/foodology/static/css/main.e597eecf.chunk.css",
-    "main.js": "/foodology/static/js/main.1a40de0a.chunk.js",
-    "main.js.map": "/foodology/static/js/main.1a40de0a.chunk.js.map",
+    "main.css": "/foodology/static/css/main.7031098e.chunk.css",
+    "main.js": "/foodology/static/js/main.b59452e0.chunk.js",
+    "main.js.map": "/foodology/static/js/main.b59452e0.chunk.js.map",
     "runtime-main.js": "/foodology/static/js/runtime-main.425ce473.js",
     "runtime-main.js.map": "/foodology/static/js/runtime-main.425ce473.js.map",
     "static/css/2.7265b85f.chunk.css": "/foodology/static/css/2.7265b85f.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.da28433e.chunk.js.map": "/foodology/static/js/3.da28433e.chunk.js.map",
     "index.html": "/foodology/index.html",
     "static/css/2.7265b85f.chunk.css.map": "/foodology/static/css/2.7265b85f.chunk.css.map",
-    "static/css/main.e597eecf.chunk.css.map": "/foodology/static/css/main.e597eecf.chunk.css.map",
+    "static/css/main.7031098e.chunk.css.map": "/foodology/static/css/main.7031098e.chunk.css.map",
     "static/js/2.ad7c236c.chunk.js.LICENSE.txt": "/foodology/static/js/2.ad7c236c.chunk.js.LICENSE.txt",
     "static/media/Menus.1faf0dcf.jpg": "/foodology/static/media/Menus.1faf0dcf.jpg",
     "static/media/Picture.faae4dfc.jpg": "/foodology/static/media/Picture.faae4dfc.jpg",
@@ -32,7 +32,7 @@
     "static/js/runtime-main.425ce473.js",
     "static/css/2.7265b85f.chunk.css",
     "static/js/2.ad7c236c.chunk.js",
-    "static/css/main.e597eecf.chunk.css",
-    "static/js/main.1a40de0a.chunk.js"
+    "static/css/main.7031098e.chunk.css",
+    "static/js/main.b59452e0.chunk.js"
   ]
 }
