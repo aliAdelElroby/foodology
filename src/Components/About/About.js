@@ -6,6 +6,7 @@ import MainButton from "@global/MainButton/MainButton";
 import Card from "@global/Card/Card";
 import Footer from "@global/Footer/Footer";
 import { lazy } from "@lazy";
+import { asset } from "@helpers";
 import OurStory from "./Local/OurStory/OurStory";
 import Team from "./Local/Team/Team";
 import Value from "./Local/Value/Value";
@@ -89,9 +90,7 @@ function About() {
 							<Card
 								data={{
 									size: "l",
-									img: `${
-										process.env.REACT_APP_LINK_START_WITH
-									}/assets/rate.svg`,
+									img: asset("/assets/rate.svg"),
 									headline: "Top Rated",
 									desc:
 										"Lorem ipsum dolor sit amet, consectetur adipiscing elit form du lahoke."

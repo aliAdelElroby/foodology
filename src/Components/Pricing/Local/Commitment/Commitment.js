@@ -1,8 +1,9 @@
 import React from "react";
 import "./Commitment.scss";
 // Import Components
-import Card from "../../../Global/Card/Card";
-import DeliveryCard from "../../../Global/DeliveryCard/DeliveryCard";
+import Card from "@global/Card/Card";
+import DeliveryCard from "@global/DeliveryCard/DeliveryCard";
+import { asset } from "@helpers";
 function Commitment() {
 	return (
 		<div className="Commitment">
@@ -29,7 +30,7 @@ function Commitment() {
 							data={{
 								size: "l",
 								headline: "Top Rated",
-								img: "/assets/rate.svg",
+								img: asset("/assets/rate.svg"),
 								bootstrap: "h-100",
 								desc:
 									"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."

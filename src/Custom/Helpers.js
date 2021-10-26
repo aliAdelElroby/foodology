@@ -42,6 +42,7 @@ export function deleteWithIdFromLocal(id, name) {
 export function setUserInLocal(data) {
 	localStorage.setItem("user", data.id);
 }
+
 export function serialize(form) {
 	let allElements = Array.from(form.elements);
 	let get = allElements.map(el => {
@@ -59,4 +60,8 @@ export function serialize(form) {
 		result[key] = value;
 	});
 	return result;
+}
+
+export function asset(link) {
+	return process.env.REACT_APP_LINK_START_WITH + link;
 }

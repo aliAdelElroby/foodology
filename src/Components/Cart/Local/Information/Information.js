@@ -88,7 +88,7 @@ function Information() {
 			</div>
 			<div className="time-delivery">
 				<h4 className="headEdit t4 d-flex align-items-center">
-					Time Delivery <ion-icon name="create-outline" />
+					Time Delivery
 				</h4>
 				<InputTime />
 			</div>

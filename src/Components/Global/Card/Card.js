@@ -1,6 +1,10 @@
 import React from "react";
 import "./Card.scss";
-function Card({ data: { size = "", img, headline, desc, bootstrap } }) {
+import { asset } from "@helpers";
+
+function Card({
+	data: { size = "", img, imgPublic, headline, desc, bootstrap }
+}) {
 	return (
 		<div
 			className={`primary-card ${bootstrap}`}
@@ -10,7 +14,7 @@ function Card({ data: { size = "", img, headline, desc, bootstrap } }) {
 			}}
 		>
 			<div className="img">
-				<img src={img} alt="card" />
+				<img src={img || asset(imgPublic)} alt="card" />
 			</div>
 			<div className="headline t3">{headline}</div>
 			<div

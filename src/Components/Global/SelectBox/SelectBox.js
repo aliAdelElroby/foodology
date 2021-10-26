@@ -74,11 +74,13 @@ function SelectBox({
 					e.target.classList.add("active");
 					MainSelect.current.value = e.target.getAttribute("data");
 					if (onSelect) {
-						onSelect(
-							e.target.getAttribute("data"),
-							e.target.textContent,
-							MainSelect.current
-						);
+						setTimeout(_ => {
+							onSelect(
+								e.target.getAttribute("data"),
+								e.target.textContent,
+								MainSelect.current
+							);
+						}, 300);
 					}
 				} else {
 					optionsWithoutDefault[i].removeAttribute("selected");

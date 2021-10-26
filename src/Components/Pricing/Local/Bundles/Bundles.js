@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Bundles.scss";
 // Import Components
 import PricingCard from "../../../Global/PricingCard/PricingCard";
+import { asset } from "@helpers";
 // Import Data
 import data from "./data/data";
 function Bundles() {
@@ -21,7 +22,10 @@ function Bundles() {
 		return (
 			<div className="col-12 col-sm-12 col-md-6 col-lg-4" key={el.id}>
 				<PricingCard
-					data={el}
+					data={{
+						...el,
+						icon: asset(el.icon)
+					}}
 					aos={mobile ? "zoom-in" : "fade-up"}
 					aosDelay={mobile ? 0 : index * 300}
 				/>

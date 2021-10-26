@@ -69,10 +69,6 @@ function Login() {
 					serialize(form.current),
 					function() {
 						setStatus(true);
-						auth.update();
-						setTimeout(_ => {
-							history.push(process.env.REACT_APP_LINK_START_WITH);
-						}, 2000);
 					},
 					function() {
 						setStatus("notFound");
@@ -155,13 +151,16 @@ function Login() {
 												Forgot password?
 											</a>
 										</div>
-										<MainButton
-											data={{
-												size: "l",
-												val: "Sign In",
-												bootstrap: "w-100 mt-5"
-											}}
-										/>
+										<div className="position-relative">
+											<MainButton
+												data={{
+													size: "l",
+													val: "Sign In",
+													bootstrap: "w-100 mt-5"
+												}}
+											/>
+											<div className="circle position-absolute rounded-circle" />
+										</div>
 										<div
 											className="have-acount t5 mt-4"
 											data-aos="zoom-in"

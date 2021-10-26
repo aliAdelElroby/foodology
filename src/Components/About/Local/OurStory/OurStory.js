@@ -1,6 +1,7 @@
 import React from "react";
 import "./OurStory.scss";
 import Gallery from "@global/Gallery/Gallery";
+import { asset } from "@helpers";
 function OurStory() {
 	return (
 		<section className="OurStory">
@@ -24,18 +25,10 @@ function OurStory() {
 			<div className="con-gallery">
 				<Gallery
 					images={[
-						`${
-							process.env.REACT_APP_LINK_START_WITH
-						}/assets/about/Pic1.jpeg`,
-						`${
-							process.env.REACT_APP_LINK_START_WITH
-						}/assets/about/Pic2.jpeg`,
-						`${
-							process.env.REACT_APP_LINK_START_WITH
-						}/assets/about/Pic3.jpeg`,
-						`${
-							process.env.REACT_APP_LINK_START_WITH
-						}/assets/about/Pic4.jpeg`
+						asset("/assets/about/Pic1.jpeg"),
+						asset("/assets/about/Pic2.jpeg"),
+						asset("/assets/about/Pic3.jpeg"),
+						asset("/assets/about/Pic4.jpeg")
 					]}
 				/>
 			</div>
